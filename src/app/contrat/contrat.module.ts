@@ -2,17 +2,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ContratRoutingModule } from './contrat-routing.module';
-import { ManagecontratsComponent } from './managecontrats/managecontrats.component';
 import { AddcontratComponent } from './addcontrat/addcontrat.component';
+import { DeletecontratComponent } from './deletecontrat/deletecontrat.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    ManagecontratsComponent,
-    AddcontratComponent
+    AddcontratComponent,
+    DeletecontratComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
     ContratRoutingModule
   ]
 })

@@ -5,6 +5,8 @@ const routes: Routes = [
   {path:"departement",loadChildren:()=>import("./departement/departement.module").then(m=>m.DepartementModule),
 },
 {path:"user",loadChildren:()=>import("./user/user.module").then(m=>m.UserModule),
+},
+{path:"contrat",loadChildren:()=>import("./contrat/contrat.module").then(m=>m.ContratModule),
 }
 ];
 

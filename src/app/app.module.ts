@@ -10,6 +10,11 @@ import { DepartementModule } from './departement/departement.module';
 import { ProjetModule } from './projet/projet-.module';
 import { EquipeModule } from './equipe/equipe.module';
 import { UniversiteModule } from './universite/universite.module';
+import { AddcontratService } from './contrat/addcontrat.service';
+import { HttpClientModule } from '@angular/common/http';
+import { NgxChartsModule }from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,6 +23,9 @@ import { UniversiteModule } from './universite/universite.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+   BrowserAnimationsModule,
     HomeModule,
     UserModule,
     ContratModule,
@@ -26,7 +34,7 @@ import { UniversiteModule } from './universite/universite.module';
     EquipeModule,
     UniversiteModule,
   ],
-  providers: [],
+  providers: [AddcontratService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

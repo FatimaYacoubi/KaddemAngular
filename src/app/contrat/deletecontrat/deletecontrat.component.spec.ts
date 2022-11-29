@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ManagecontratsComponent } from './managecontrats.component';
+import { DeletecontratComponent } from './deletecontrat.component';
 
-describe('ManagecontratsComponent', () => {
-  let component: ManagecontratsComponent;
-  let fixture: ComponentFixture<ManagecontratsComponent>;
+describe('DeletecontratComponent', () => {
+  let component: DeletecontratComponent;
+  let fixture: ComponentFixture<DeletecontratComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ManagecontratsComponent ]
+      declarations: [ DeletecontratComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ManagecontratsComponent);
+    fixture = TestBed.createComponent(DeletecontratComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
