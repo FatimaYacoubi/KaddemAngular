@@ -2321,30 +2321,25 @@
     border: 0;
   }
   
-  .form-control {
-    display: block;
-    width: 100%;
-    padding: 0.4375rem 0;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #495057;
-    background-color: rgba(0, 0, 0, 0);
-    background-clip: padding-box;
-    border: 1px solid #d2d2d2;
-    border-radius: 0;
-    box-shadow: none;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  .form-control{
+    display: block  !important;
+    width: 100%  !important;
+    padding: 0.4375rem 0  !important;
+    font-size: 1rem  !important;
+    color: hwb(210 76% 21%)  !important;
+    background-clip: padding-box  !important;
+    border-radius: 0  !important;
+    box-shadow: none  !important;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out ;
   }
   
   .form-control::-ms-expand {
-    background-color: transparent;
     border: 0;
   }
   
   .form-control:focus {
     color: #495057;
     background-color: rgba(0, 0, 0, 0);
-    border-color: #9acffa;
     outline: 0;
     box-shadow: none, 0 0 0 0.2rem rgba(33, 150, 243, 0.25);
   }
@@ -22194,3 +22189,60 @@
     background-color: #fff;
   }
   /*# sourceMappingURL=dashboard-free.css.map */
+  @import url('https://fonts.googleapis.com/css?family=PT+Sans');
+
+body{
+  background: #fff;
+  font-family: 'PT Sans', sans-serif;
+}
+h2{
+  padding-top: 1.5rem;
+}
+a{
+  color: #333;
+}
+a:hover{
+  color: #da5767;
+  text-decoration: none;
+}
+.card{
+  border: 0.40rem solid #f8f9fa;
+  top: 10%;
+}
+
+
+input.ng-invalid{
+ 
+  color: red;
+  border-color: #9acffa;
+  outline: 0;
+  box-shadow: none, 0 0 0 0.2rem rgba(33, 150, 243, 0.25);
+
+
+}
+.date{
+  background-color: #ffffff;
+
+}
+input.ng-valid.ng-touched{
+ 
+  color: #000000;
+  border: 3px solid #57dab7;
+  outline: 0;
+  box-shadow: none;
+
+
+}
+.btn{
+  padding: 0.6rem 1.2rem;
+  background: #da5767;
+  border: 2px solid #da5767;
+}
+.btn-primary:hover {
+
+    
+    background-color: #df8c96;
+    border-color: #df8c96;
+  transition: .3s;
+
+}

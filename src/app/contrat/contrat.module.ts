@@ -5,6 +5,8 @@ import { ContratRoutingModule } from './contrat-routing.module';
 import { AddcontratComponent } from './addcontrat/addcontrat.component';
 import { DeletecontratComponent } from './deletecontrat/deletecontrat.component';
 import { FormsModule } from '@angular/forms';
+import { NgxChartsModule }from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -15,7 +17,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
-    ContratRoutingModule
+    ContratRoutingModule,
+    NgxChartsModule,
   ]
 })
 export class ContratModule { }

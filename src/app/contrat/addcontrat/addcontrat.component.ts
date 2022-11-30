@@ -10,15 +10,22 @@ import { Specialite } from '../Specialite';
   styleUrls: ['./addcontrat.component.css']
 })
 export class AddcontratComponent implements OnInit {
-  etudiant :Etudiant = new Etudiant("hey","hey",1);
+  etudiant :Etudiant = new Etudiant("","",1);
 
 contrat: Contrat= new Contrat(new Date(),new Date(),Specialite.CLOUD,false,"",this.etudiant);
 message:any;
+part1: boolean = false;
+
   constructor(private service:AddcontratService){}
   ngOnInit() {
   }
+  close(){
+    this.part1=false;
+  }
 public AddContratA(){
 let resp=this.service.addContrat(this.contrat);
-resp.subscribe((data)=>this.message=data);
+resp.subscribe((data)=>this.message="Contrat Ajouté!");
+this.part1=true;
+
 }
 }
