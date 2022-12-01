@@ -16,14 +16,20 @@ import { NgxChartsModule }from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { SidebarComponent } from './sidebar/sidebar.component';
-
+import { EntrepriseModule } from './entreprise/entreprise.module';
+import { AddentrepriseComponent } from './entreprise/addentreprise/addentreprise.component';
+import { DeleteentrepriseComponent } from './entreprise/deleteentreprise/deleteentreprise.component';
+import { AgmCoreModule } from '@agm/core';
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
+    AddentrepriseComponent,
+    DeleteentrepriseComponent,
   ],
   imports: [
     BrowserModule,
+    
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
@@ -35,6 +41,10 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     ProjetModule,
     EquipeModule,
     UniversiteModule,
+    EntrepriseModule,
+   AgmCoreModule.forRoot({
+    apiKey:'ddddddddddd',
+   })
   ],
   providers: [AddcontratService],
   bootstrap: [AppComponent]

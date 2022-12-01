@@ -8,6 +8,8 @@ const routes: Routes = [{path:"",redirectTo:"contrat",pathMatch:"full"},
 {path:"user",loadChildren:()=>import("./user/user.module").then(m=>m.UserModule),
 },
 {path:"contrat",loadChildren:()=>import("./contrat/contrat.module").then(m=>m.ContratModule),
+},
+{path:"entreprise",loadChildren:()=>import("./entreprise/entreprise.module").then(m=>m.EntrepriseModule),
 }
 ];
 
