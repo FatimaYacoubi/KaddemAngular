@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { AddcontratComponent } from './addcontrat/addcontrat.component';
 import { map } from 'rxjs';
 import { IContrat, ITypePercentage } from './contrat.interface';
+import { Specialite } from './Specialite';
 @Injectable({
   providedIn: 'root'
 })
@@ -33,7 +34,10 @@ export class AddcontratService {
   { 
     return this.http.get('http://localhost:8002/SpringMVC/ContratC/export/excel',{responseType:'blob'});}
   
-  
+  public getContratBySpecialite(specialite:any)
+  {
+    return this.http.get('http://localhost:8002/SpringMVC/ContratC/specialite/'+ specialite);
+  }
   
     public getTypePercentage(): Observable<Array< ITypePercentage>> {
       return this.http.get('http://localhost:8002/SpringMVC/ContratC/chartbyspecialite')

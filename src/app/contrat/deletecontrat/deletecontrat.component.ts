@@ -11,7 +11,6 @@ import { Specialite } from '../Specialite';
   styleUrls: ['./deletecontrat.component.css']
 })
 export class DeletecontratComponent implements OnInit {
- 
   contrats:any
  etudiantC:any
  message:any
@@ -20,6 +19,7 @@ export class DeletecontratComponent implements OnInit {
  single :any;
  etudiant :Etudiant = new Etudiant("","");
  contratToUpdate: Contrat= new Contrat(new Date(),new Date(),Specialite.CLOUD,false,"",this.etudiant);
+ specialite: string="";
 
   constructor(private service:AddcontratService) { }
   
@@ -98,4 +98,10 @@ setTimeout(function() {
 
 
 ]);
+
+public findContratBySpecialite()
+{
+  let resp= this.service.getContratBySpecialite(this.specialite);
+  resp.subscribe((data)=>this.contrats=data)
+}
 }
