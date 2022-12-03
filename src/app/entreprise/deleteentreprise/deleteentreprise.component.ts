@@ -10,8 +10,10 @@ import { NgxPaginationModule } from 'ngx-pagination/public-api';
 export class DeleteentrepriseComponent implements OnInit {
   entreprises:any
   entreprise:any
-  entrepriseToUpdate: Entreprise= new Entreprise(1,"","",1);
+  entrepriseToUpdate: Entreprise= new Entreprise("","",12,13,1,1);
   message:any;
+  entrep : Entreprise | undefined;
+  keys=Object.keys(Entreprise);
   p: number=1;
   part1: boolean = false; 
   constructor(private service:EntrepriseService) { }
@@ -32,6 +34,9 @@ export class DeleteentrepriseComponent implements OnInit {
   ngOnInit() {
     let resp=this.service.getEntreprises();
     resp.subscribe((data)=>this.entreprises=data);
+   
+      return Object.keys(this.entreprise.data);
+    
   }
   public AddEntreprise(){
     let resp=this.service.addEntreprise(this.entreprise);

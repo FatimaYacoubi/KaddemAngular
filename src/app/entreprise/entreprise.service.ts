@@ -9,7 +9,7 @@ import { Entreprise } from './entreprise';
 export class EntrepriseService {
 
   constructor(private http:HttpClient) { }
-  
+  entreprises: any={};
   public addEntreprise(Entreprise:any){
     console.log("hello");
     console.log(Entreprise);
@@ -23,5 +23,9 @@ export class EntrepriseService {
   }
   public UpdateEntreprise(entreprise:any){
     return this.http.put("http://localhost:8002/SpringMVC/Entreprise/updateEntreprise",entreprise)
+  }
+  public getData():Observable<Object>
+  {
+    return this.http.get("http://localhost:8002/SpringMVC/Entreprise/AllEntreprises")
   }
 }
