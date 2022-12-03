@@ -7,7 +7,7 @@ import { DeletecontratComponent } from './deletecontrat/deletecontrat.component'
 import { FormsModule } from '@angular/forms';
 import { NgxChartsModule }from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -19,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     ContratRoutingModule,
     NgxChartsModule,
+    NgxPaginationModule
   ]
 })
 export class ContratModule { }

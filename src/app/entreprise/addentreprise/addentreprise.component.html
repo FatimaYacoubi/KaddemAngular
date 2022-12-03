@@ -185,7 +185,7 @@
                     </div>
                     <div class="card-body">
 
-         <form _lpchecked="1" #f="ngForm">
+<form _lpchecked="1" #f="ngForm">
             <div class="row">
      <div class="form-group">
         <input required class="form-control" id="nomE" #nomE="ngModel" type="text" [(ngModel)]="entreprise.nomEntreprise"  name="nomE" placeholder="Nom de l'entreprise" >
@@ -200,13 +200,25 @@
 <div align="center">  
    <button class="btn btn-primary" type="submit" value="AddContrat" (click)="AddEntreprise()">Créer le Contrat</button> 
 </div> </div> </div></form>
- 
+
             </div>
        </div>
     </div>
   </div>
+
   </div>
+
   </div>
+    <google-map height="400px"
+    width="750px"
+    [center]="center"
+    [zoom]="zoom"
+    (mapClick)="moveMap($event)"
+    (mapMousemove)="move($event)">
+</google-map>
+
+<div>Latitude: {{display?.lat}}</div>
+<div>Longitude: {{display?.lng}}</div>
   <script>
     setTimeout(() => {
   const box = document.getElementById('alertcontrat');

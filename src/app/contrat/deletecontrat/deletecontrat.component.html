@@ -200,7 +200,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let contrat of contrats">
+            <tr *ngFor="let contrat of contrats | paginate : { itemsPerPage:4, currentPage:p}">
                 <td>{{contrat.idContrat}}</td>
                 <td>{{contrat.dateDebutContrat}}</td>
                 <td>{{contrat.datefinContrat}}</td>
@@ -219,8 +219,10 @@
               </tr>
         </tbody>
         </table>
-    
-        
+        <div align="center">
+        <pagination-controls style="color :aliceblue"(pageChange)="p= $event"></pagination-controls>
+
+      </div>
     <!-- The form -->
       <div> <input type="checkbox" id="click">
         <div class="content">
@@ -244,4 +246,4 @@
         </div>
       </div> 
       </div> </div></div></div>
-    
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdEECHzvdivYqCtd7lzvsez8CK5ElC7x0&callback=initMap" async defer></script>

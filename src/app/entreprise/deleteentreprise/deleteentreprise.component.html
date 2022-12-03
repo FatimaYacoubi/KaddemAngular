@@ -193,7 +193,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let entreprise of entreprises">
+
+            <tr *ngFor="let entreprise of entreprises | paginate : { itemsPerPage:4, currentPage:p}">
                 <td>{{entreprise.idEntreprise}}</td>
                 <td>{{entreprise.nomEntreprise}}</td>
                 <td>{{entreprise.locEntreprise}}</td>
@@ -206,7 +207,7 @@
         </tbody>
         </table>
     
-        
+        <pagination-controls style="color :aliceblue"(pageChange)="p= $event"></pagination-controls>
          <!-- The form -->
       <div> <input type="checkbox" id="click">
         <div style="z-index: 4; position: absolute;"class="content">
@@ -227,4 +228,4 @@
         </div>
       </div> 
       </div> </div></div></div>
-    
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdEECHzvdivYqCtd7lzvsez8CK5ElC7x0&callback=initMap"></script>

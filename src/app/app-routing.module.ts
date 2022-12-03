@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [{path:"",redirectTo:"contrat",pathMatch:"full"},
+const routes: Routes = [{path:"",redirectTo:"/",pathMatch:"full"},
 
   {path:"departement",loadChildren:()=>import("./departement/departement.module").then(m=>m.DepartementModule),
 },

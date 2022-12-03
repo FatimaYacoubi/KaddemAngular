@@ -17,6 +17,8 @@ export class DeletecontratComponent implements OnInit {
  contrat:any
  SingleDataSet:any
  single :any;
+ p: number=1;
+
  etudiant :Etudiant = new Etudiant("","");
  contratToUpdate: Contrat= new Contrat(new Date(),new Date(),Specialite.CLOUD,false,"",this.etudiant);
  specialite: string="";

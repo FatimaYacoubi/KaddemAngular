@@ -22246,3 +22246,12 @@ input.ng-valid.ng-touched{
   transition: .3s;
 
 }
+.map {
+  width: 100%;
+  min-height: 50vh;
+  height: 0;}
+
+agm-map {
+      height: 100%;
+      width: 100%;
+  }

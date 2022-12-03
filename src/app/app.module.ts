@@ -19,7 +19,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { EntrepriseModule } from './entreprise/entreprise.module';
 import { AddentrepriseComponent } from './entreprise/addentreprise/addentreprise.component';
 import { DeleteentrepriseComponent } from './entreprise/deleteentreprise/deleteentreprise.component';
-import { AgmCoreModule } from '@agm/core';
+import { GoogleMapsModule } from '@angular/google-maps'
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,9 +43,8 @@ import { AgmCoreModule } from '@agm/core';
     EquipeModule,
     UniversiteModule,
     EntrepriseModule,
-   AgmCoreModule.forRoot({
-    apiKey:'ddddddddddd',
-   })
+    NgxPaginationModule,
+    GoogleMapsModule
   ],
   providers: [AddcontratService],
   bootstrap: [AppComponent]

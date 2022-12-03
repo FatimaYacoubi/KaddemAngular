@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Entreprise } from '../entreprise';
 import { EntrepriseService } from '../entreprise.service';
-
+import { NgxPaginationModule } from 'ngx-pagination/public-api';
 @Component({
   selector: 'app-deleteentreprise',
   templateUrl: './deleteentreprise.component.html',
@@ -12,6 +12,7 @@ export class DeleteentrepriseComponent implements OnInit {
   entreprise:any
   entrepriseToUpdate: Entreprise= new Entreprise(1,"","",1);
   message:any;
+  p: number=1;
   part1: boolean = false; 
   constructor(private service:EntrepriseService) { }
   public deleteEntreprise(idEntreprise:number)
