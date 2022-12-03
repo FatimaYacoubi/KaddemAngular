@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { EntrepriseRoutingModule } from './entreprise-routing.module';
-import { GoogleMapsModule } from '@angular/google-maps'
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [],
@@ -10,7 +10,9 @@ import { GoogleMapsModule } from '@angular/google-maps'
     CommonModule,
     EntrepriseRoutingModule,
    NgxPaginationModule,
-   GoogleMapsModule
+   AgmCoreModule.forRoot({
+    apiKey: 'AIzaSyDdEECHzvdivYqCtd7lzvsez8CK5ElC7x0'
+  })
 
   ]
 })

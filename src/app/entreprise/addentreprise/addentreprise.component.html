@@ -213,34 +213,8 @@
   </div>
 
   </div>
-  <div *ngFor="let entreprise of entreprises"><h1>{{entreprise.longitude}}</h1>
-    <h1>{{entreprise.latitude}}</h1>
-    <h1>{{entreprise.nomEntreprise}}</h1></div>
-  </div>
-    <google-map height="400px"
-    width="750px"
-    [center]="center"
-    [zoom]="zoom"
-    (mapClick)="moveMap($event)"
-    (mapMousemove)="move($event)">
-    <div *ngFor="let entreprise of entreprises">
-    <map-marker 
-    [position]="{lat:entreprise.latitude, lng:entreprise.longitude}",
-    [label]="entreprise.nomEntreprise"
-    [options]="markerOptions"></map-marker> </div>
-    <map-marker
-    [position]="{ lat:33.456128, lng: 9.0246438 }"
-    [options]="markerOptions"
-    [label]="'hey'"
-></map-marker>
-<map-marker
-    [position]="{ lat:37.29748301454342, lng: 9.837224744497748 }"
-    [options]="markerOptions"
-    [label]="'hey'"
-></map-marker>
-</google-map>
-<div>Latitude: {{display?.lat}}</div>
-<div>Longitude: {{display?.lng}}</div>
+  
+   
   <script>
     setTimeout(() => {
   const box = document.getElementById('alertcontrat');
