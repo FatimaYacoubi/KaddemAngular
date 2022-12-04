@@ -9,9 +9,6 @@
     "src/main.ts",
     "src/polyfills.ts"
   ],
-  "types": [
-    "googlemaps"
-  ],
   "include": [
     "src/**/*.d.ts"
   ]

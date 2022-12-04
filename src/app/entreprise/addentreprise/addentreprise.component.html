@@ -213,8 +213,19 @@
   </div>
 
   </div>
+  <div class="map">
+  <agm-map 
   
+   [longitude]="lng"
+   [latitude]="lht"
+    [zoom]="zoom">
+    <agm-marker *ngFor="let entreprise of entreprises"
+     [latitude]="entreprise.latitude"
+     [longitude]="entreprise.longitude"
+    [label]="{color: 'white', fontSize: '9px', text: entreprise.nomEntreprise}"></agm-marker>
    
+</agm-map></div>
+
   <script>
     setTimeout(() => {
   const box = document.getElementById('alertcontrat');
