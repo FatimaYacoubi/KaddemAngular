@@ -1,16 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [{path:"",redirectTo:"/",pathMatch:"full"},
-
+const routes: Routes = [
   {path:"departement",loadChildren:()=>import("./departement/departement.module").then(m=>m.DepartementModule),
 },
 {path:"user",loadChildren:()=>import("./user/user.module").then(m=>m.UserModule),
 },
-{path:"contrat",loadChildren:()=>import("./contrat/contrat.module").then(m=>m.ContratModule),
-},
-{path:"entreprise",loadChildren:()=>import("./entreprise/entreprise.module").then(m=>m.EntrepriseModule),
-}
+  { path: 'projectdetails', loadChildren: () => import('./projectdetails/projectdetails.module').then(m => m.ProjectdetailsModule) }
+  ,
+  { path: 'project', loadChildren: () => import('./projet/projet-.module').then(m => m.ProjetModule) }
 ];
 
 @NgModule({

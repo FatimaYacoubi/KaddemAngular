@@ -1,8 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AddcontratService } from '../addcontrat.service';
-import { Contrat } from '../contrat';
-import { Etudiant } from '../etudiant';
-import { Specialite } from '../Specialite';
 
 @Component({
   selector: 'app-addcontrat',
@@ -10,22 +6,10 @@ import { Specialite } from '../Specialite';
   styleUrls: ['./addcontrat.component.css']
 })
 export class AddcontratComponent implements OnInit {
-  etudiant :Etudiant = new Etudiant("","",1);
 
-contrat: Contrat= new Contrat(new Date(),new Date(),Specialite.CLOUD,false,"",this.etudiant);
-message:any;
-part1: boolean = false;
+  constructor() { }
 
-  constructor(private service:AddcontratService){}
-  ngOnInit() {
+  ngOnInit(): void {
   }
-  close(){
-    this.part1=false;
-  }
-public AddContratA(){
-let resp=this.service.addContrat(this.contrat);
-resp.subscribe((data)=>this.message="Contrat Ajouté!");
-this.part1=true;
 
-}
 }
