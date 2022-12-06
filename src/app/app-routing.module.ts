@@ -6,7 +6,7 @@ const routes: Routes = [
 },
 {path:"user",loadChildren:()=>import("./user/user.module").then(m=>m.UserModule),
 },
-  { path: 'projectdetails', loadChildren: () => import('./projectdetails/projectdetails.module').then(m => m.ProjectdetailsModule) }
+  { path: 'projectdetail', loadChildren: () => import('./projectdetails/projectdetails.module').then(m => m.ProjectdetailsModule) }
   ,
   { path: 'project', loadChildren: () => import('./projet/projet-.module').then(m => m.ProjetModule) }
 ];

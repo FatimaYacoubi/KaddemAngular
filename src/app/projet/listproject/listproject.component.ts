@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProjetService } from 'src/app/projet.service';
 import { projet } from 'src/projet';
+import { projetdetail } from 'src/projetdetail';
 
 @Component({
   selector: 'app-listproject',
@@ -11,10 +13,17 @@ export class ListprojectComponent implements OnInit {
   projets: any;
   message: any;
   projet: any;
-  projetToUpdate = new projet(0, '', '');
+  projetToUpdate = new projet( '', '');
 
-  constructor(private service: ProjetService) {}
+  constructor(private service: ProjetService,private router:Router) {}
 
+
+  ngOnInit(): void {
+    this.service.listprojet().subscribe((data) => (this.projets = data)); 
+  }
+
+
+  
   public deleteprojet(idprojet: number) {
     console.log(idprojet);
     let resp = this.service.removeprojet(idprojet);
@@ -33,7 +42,15 @@ export class ListprojectComponent implements OnInit {
     window.location.reload();
   }
 
-  ngOnInit(): void {
-    this.service.listprojet().subscribe((data) => (this.projets = data));
+  goToVotes($myParam: string = ''): void {
+    const navigationDetails: string[] = ['/project/add'];
+    if($myParam.length) {
+      navigationDetails.push($myParam);
+    }
+    this.router.navigate(navigationDetails);
   }
+
+
+
+
 }

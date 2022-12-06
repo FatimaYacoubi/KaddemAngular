@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProjetService } from 'src/app/projet.service';
 import { projet } from 'src/projet';
+import { projetdetail } from 'src/projetdetail';
 
 @Component({
   selector: 'app-addproject',
@@ -9,10 +11,10 @@ import { projet } from 'src/projet';
 })
 export class AddprojectComponent implements OnInit {
   projets: any = {};
-  projeta: projet = new projet(2, '', '');
+  projeta: projet = new projet( '', '');
   message: any;
   part1: boolean = false;
-  constructor(private service: ProjetService) {}
+  constructor(private service: ProjetService,private router:Router) {}
 
   close() {
     this.part1 = false;
@@ -28,5 +30,15 @@ export class AddprojectComponent implements OnInit {
       .subscribe((data) => (this.message = 'projet added'));
 
     this.part1 = true;
+  
+  }
+
+
+  goToVotes($myParam: string = ''): void {
+    const navigationDetails: string[] = ['/project/list'];
+    if($myParam.length) {
+      navigationDetails.push($myParam);
+    }
+    this.router.navigate(navigationDetails);
   }
 }

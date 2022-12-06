@@ -36,5 +36,9 @@ export class ProjetService {
     );
   }
 
-  public findprojetbyid() {}
+  public findprojetbyid(idProjet: any) {
+    return this.http.get(
+      'http://localhost:8088/SpringMVC/ProjetC/getallProjets' + idProjet
+    );
+  }
 }
