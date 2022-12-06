@@ -11,6 +11,8 @@ import { ProjetModule } from './projet/projet-.module';
 import { EquipeModule } from './equipe/equipe.module';
 import { UniversiteModule } from './universite/universite.module';
 import { ProjectdetailsModule } from './projectdetails/projectdetails.module';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { ProjectdetailsModule } from './projectdetails/projectdetails.module';
     EquipeModule,
     UniversiteModule,
     ProjectdetailsModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
