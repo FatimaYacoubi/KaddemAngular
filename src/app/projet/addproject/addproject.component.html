@@ -216,8 +216,8 @@
         <br />
         <br />
 
-        <div >
-          <button type="button"   (click)="goToVotes()">
+        <div>
+          <button type="button" (click)="goToVotes()">
             <i class="fa fa-arrow-left"></i> go back
           </button>
         </div>
@@ -274,6 +274,19 @@
                             placeholder="etat du projet"
                           />
                         </div>
+                        <div class="form-group">
+                          <input
+                            required
+                            class="form-control"
+                            id="nb"
+                            #projetDetail="ngModel"
+                            type="number"
+                            [(ngModel)]="ii"
+                            name="nb"
+                            placeholder="projetDetail du projet"
+                          />
+                          {{ii }}
+                        </div>
                         <div
                           class="d-flex flex-row align-items-center justify-content-between"
                         >
@@ -282,7 +295,7 @@
                               class="btn btn-primary"
                               type="submit"
                               value="addprojet"
-                              (click)="addprojet()"
+                              (click)="addprojet(ii)"
                             >
                               Créer le projet
                             </button>

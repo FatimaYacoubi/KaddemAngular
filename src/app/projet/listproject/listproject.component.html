@@ -273,15 +273,12 @@
                               </td>
                             </ng-container>
                             <td class="text-center">
-                             
-
                               <button
                                 class="btn btn-warning btn-xs"
                                 (click)="getprojet(projet)"
                               >
                                 <i class="fa fa-edit"></i>
                               </button>
-                            
                             </td>
                             <td class="text-center">
                               <button
@@ -323,18 +320,20 @@
                               />
                             </div>
                             <div class="form-group">
-                              <ng-container> 
-                              <input
-                                required
-                                class="form-control"
-                                id="projetDetail"
-                                #projetDetail="ngModel"
-                                type="number"
-                                [ngModel]="projetToUpdate.projetDetail?.idProjetDetail"
-                                name="projetDetail"
-                                placeholder="projetDetail du projet"
-                              />
-                            </ng-container>
+                              <ng-container>
+                                <input
+                                  required
+                                  class="form-control"
+                                  id="projetDetail"
+                                  #projetDetail="ngModel"
+                                  type="number"
+                                  [ngModel]="
+                                    projetToUpdate.projetDetail?.idProjetDetail
+                                  "
+                                  name="projetDetail"
+                                  placeholder="projetDetail du projet"
+                                />
+                              </ng-container>
                             </div>
 
                             <div
@@ -355,7 +354,11 @@
                         </form>
                       </div>
                       <div class="text-center">
-                        <button type="button" class="btn btn-success"  (click)="goToVotes()">
+                        <button
+                          type="button"
+                          class="btn btn-success"
+                          (click)="goToVotes()"
+                        >
                           <i class="fa fa-plus"></i> Add
                         </button>
                       </div>

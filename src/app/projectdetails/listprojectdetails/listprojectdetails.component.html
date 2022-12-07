@@ -255,7 +255,7 @@
                           <th class="text-primary" style="text-align: center">
                             dateLimite
                           </th>
-                 
+
                           <th class="text-primary" style="text-align: center">
                             update
                           </th>
@@ -264,7 +264,7 @@
                           </th>
                         </thead>
                         <tbody>
-                          <tr *ngFor="let projetdetail of projetdetails">
+                          <tr *ngFor="let projetdetail of list | async">
                             <td style="text-align: center">
                               {{ projetdetail.idProjetDetail }}
                             </td>
@@ -275,30 +275,31 @@
                               {{ projetdetail.technologie }}
                             </td>
                             <td style="text-align: center">
-                                {{ projetdetail.cout_provisoire }}
-                              </td>
-                              <td style="text-align: center">
-                                {{ projetdetail.dateDebut }}
-                              </td>
-                              <td style="text-align: center">
-                                {{ projetdetail.dateLimite }}
-                              </td>
-                       
-                            <td class="text-center">
-                             
+                              {{ projetdetail.cout_provisoire }}
+                            </td>
+                            <td style="text-align: center">
+                              {{ projetdetail.dateDebut }}
+                            </td>
+                            <td style="text-align: center">
+                              {{ projetdetail.dateLimite }}
+                            </td>
 
+                            <td class="text-center">
                               <button
                                 class="btn btn-warning btn-xs"
                                 (click)="getProjetdetail(projetdetail)"
                               >
                                 <i class="fa fa-edit"></i>
                               </button>
-                            
                             </td>
                             <td class="text-center">
                               <button
                                 class="btn btn-danger btn-xs"
-                                (click)="deleteProjetdetail(projetdetail.idProjetDetail)"
+                                (click)="
+                                  deleteProjetdetail(
+                                    projetdetail.idProjetDetail
+                                  )
+                                "
                               >
                                 <i class="fa fa-trash"></i>
                               </button>
@@ -307,93 +308,47 @@
                         </tbody>
                       </table>
 
-                      <div class="card-body">
-                        <form _lpchecked="1" #ff="ngForm">
-                          <div class="row">
-                            <div class="form-group">
-                              <input
-                                required
-                                class="form-control"
-                                id="description"
-                                #description="ngModel"
-                                type="text"
-                                [(ngModel)]="projetdetailToUpdate.description"
-                                name="description"
-                                placeholder="description du projet"
-                              />
-                            </div>
-                            <div class="form-group">
-                              <input
-                                required
-                                class="form-control"
-                                id="technologie"
-                                #technologie="ngModel"
-                                type="text"
-                                [(ngModel)]="projetdetailToUpdate.technologie"
-                                name="technologie"
-                                placeholder="technologie du projet"
-                              />
-                            </div>
-                            <div class="form-group">
-                                <input
-                                  required
-                                  class="form-control"
-                                  id="cout_provisoire"
-                                  #cout_provisoire="ngModel"
-                                  type="number"
-                                  [(ngModel)]="projetdetailToUpdate.cout_provisoire"
-                                  name="cout_provisoire"
-                                  placeholder="cout_provisoire du projet"
-                                />
-                              </div>
-                              <div class="form-group">
-                                <input
-                                  required
-                                  class="form-control"
-                                  id="dateDebut"
-                                  #dateDebut="ngModel"
-                                  type="date"
-                                  [(ngModel)]="projetdetailToUpdate.dateDebut"
-                                  name="dateDebut"
-                                  placeholder="dateDebut du projet"
-                                />
-                              </div>
-                              <div class="form-group">
-                                <input
-                                  required
-                                  class="form-control"
-                                  id="dateLimite"
-                                  #dateLimite="ngModel"
-                                  type="date"
-                                  [(ngModel)]="projetdetailToUpdate.dateLimite"
-                                  name="dateLimite"
-                                  placeholder="dateLimite du projet"
-                                />
-                              </div>
-                          
+                      <form
+                        [formGroup]="formgroup"
+                        (ngSubmit)="updateProjetdetailt(formgroup.value)"
+                        [hidden]="hide"
+                      >
+                        <label>description</label>
+                        <input type="text" formControlName="description" />
+                        <br />
+                        <label>technologie</label>
+                        <input type="text" formControlName="technologie" />
+                        <br />
+                        <br />
+                        <label>cout_provisoire</label>
+                        <input
+                          type="number"
+                          formControlName="cout_provisoire"
+                        />
+                        <br />
+                        <br />
+                        <label>dateDebut</label>
+                        <input type="date" formControlName="dateDebut" />
+                        <br />
+                        <br />
+                        <label>dateLimite</label>
+                        <input type="date" formControlName="dateLimite" />
+                        <br />
+                        <br />
 
-                            <div
-                              class="d-flex flex-row align-items-center justify-content-between"
-                            >
-                              
-                                <button
-                                  class="btn btn-primary"
-                                  type="submit"
-                                  value="addprojet"
-                                  (click)="updateProjetdetailt()"
-                                >
-                                  update le projet
-                                </button>
-                              
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                      <div class="text-center">
-                        <button type="button" class="btn btn-success"  (click)="goToVotes()">
-                          <i class="fa fa-plus"></i> Add
+                        <button [disabled]="formgroup.invalid">
+                          update product
                         </button>
-                      </div>
+                      </form>
+                    </div>
+                    <div class="text-center">
+                      <button
+                        type="button"
+                        class="btn btn-success"
+                        (click)="goToVotes()"
+                      >
+                        <i class="fa fa-plus"></i> Add
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -401,40 +356,41 @@
             </div>
           </div>
         </div>
-        <footer class="footer">
-          <div class="container-fluid">
-            <nav class="float-left">
-              <ul>
-                <li>
-                  <a href="https://www.creative-tim.com"> Creative Tim </a>
-                </li>
-                <li>
-                  <a href="https://creative-tim.com/presentation"> About Us </a>
-                </li>
-                <li>
-                  <a href="http://blog.creative-tim.com"> Blog </a>
-                </li>
-                <li>
-                  <a href="https://www.creative-tim.com/license"> Licenses </a>
-                </li>
-              </ul>
-            </nav>
-            <div class="copyright float-right" id="date">
-              , made with <i class="material-icons">favorite</i> by
-              <a href="https://www.creative-tim.com" target="_blank"
-                >Creative Tim</a
-              >
-              for a better web.
-            </div>
-          </div>
-        </footer>
-        <script>
-          const x = new Date().getFullYear();
-          let date = document.getElementById("date");
-          date.innerHTML = "&copy; " + x + date.innerHTML;
-        </script>
       </div>
+      <footer class="footer">
+        <div class="container-fluid">
+          <nav class="float-left">
+            <ul>
+              <li>
+                <a href="https://www.creative-tim.com"> Creative Tim </a>
+              </li>
+              <li>
+                <a href="https://creative-tim.com/presentation"> About Us </a>
+              </li>
+              <li>
+                <a href="http://blog.creative-tim.com"> Blog </a>
+              </li>
+              <li>
+                <a href="https://www.creative-tim.com/license"> Licenses </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="copyright float-right" id="date">
+            , made with <i class="material-icons">favorite</i> by
+            <a href="https://www.creative-tim.com" target="_blank"
+              >Creative Tim</a
+            >
+            for a better web.
+          </div>
+        </div>
+      </footer>
+      <script>
+        const x = new Date().getFullYear();
+        let date = document.getElementById("date");
+        date.innerHTML = "&copy; " + x + date.innerHTML;
+      </script>
     </div>
+
     <div class="fixed-plugin">
       <div class="dropdown show-dropdown">
         <a href="#" data-toggle="dropdown">

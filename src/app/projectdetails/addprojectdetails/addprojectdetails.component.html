@@ -216,8 +216,8 @@
         <br />
         <br />
 
-        <div >
-          <button type="button"   (click)="goToVotes()">
+        <div>
+          <button type="button" (click)="goToVotes()">
             <i class="fa fa-arrow-left"></i> go back
           </button>
         </div>
@@ -254,12 +254,12 @@
                           <input
                             required
                             class="form-control"
-                            id="sujet"
-                            #sujet="ngModel"
+                            id="description"
+                            #description="ngModel"
                             type="text"
                             [(ngModel)]="projetdetaila.description"
-                            name="sujet"
-                            placeholder="sujet du projet"
+                            name="description"
+                            placeholder="description du projet"
                           />
                         </div>
                         <div class="form-group">
@@ -275,41 +275,41 @@
                           />
                         </div>
                         <div class="form-group">
-                            <input
-                              required
-                              class="form-control"
-                              id="cout_provisoire"
-                              #cout_provisoire="ngModel"
-                              type="number"
-                              [(ngModel)]="projetdetaila.cout_provisoire"
-                              name="cout_provisoire"
-                              placeholder="cout_provisoire du projet"
-                            />
-                          </div>
-                          <div class="form-group">
-                            <input
-                              required
-                              class="form-control"
-                              id="dateDebut"
-                              #dateDebut="ngModel"
-                              type="date"
-                              [(ngModel)]="projetdetaila.dateDebut"
-                              name="dateDebut"
-                              placeholder="dateDebut du projet"
-                            />
-                          </div>
-                          <div class="form-group">
-                            <input
-                              required
-                              class="form-control"
-                              id="dateLimite"
-                              #dateLimite="ngModel"
-                              type="date"
-                              [(ngModel)]="projetdetaila.dateLimite"
-                              name="dateLimite"
-                              placeholder="dateLimite du projet"
-                            />
-                          </div>
+                          <input
+                            required
+                            class="form-control"
+                            id="cout_provisoire"
+                            #cout_provisoire="ngModel"
+                            type="number"
+                            [(ngModel)]="projetdetaila.cout_provisoire"
+                            name="cout_provisoire"
+                            placeholder="cout_provisoire du projet"
+                          />
+                        </div>
+                        <div class="form-group">
+                          <input
+                            required
+                            class="form-control"
+                            id="dateDebut"
+                            #dateDebut="ngModel"
+                            type="date"
+                            [(ngModel)]="projetdetaila.dateDebut"
+                            name="dateDebut"
+                            placeholder="dateDebut du projet"
+                          />
+                        </div>
+                        <div class="form-group">
+                          <input
+                            required
+                            class="form-control"
+                            id="dateLimite"
+                            #dateLimite="ngModel"
+                            type="date"
+                            [(ngModel)]="projetdetaila.dateLimite"
+                            name="dateLimite"
+                            placeholder="dateLimite du projet"
+                          />
+                        </div>
                         <div
                           class="d-flex flex-row align-items-center justify-content-between"
                         >

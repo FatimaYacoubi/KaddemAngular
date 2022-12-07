@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, shareReplay } from 'rxjs';
+import { projetdetail } from 'src/projetdetail';
 
 @Injectable({
   providedIn: 'root',
@@ -17,8 +19,10 @@ export class ProjetdetailService {
     );
   }
 
-  public updateProjetdetail(Projetdetail: any) {
-    return this.http.put(
+  public updateProjetdetail(
+    Projetdetail: projetdetail
+  ): Observable<projetdetail> {
+    return this.http.put<projetdetail>(
       'http://localhost:8088/SpringMVC/ProjetDetailC/updateProjetDetail',
       Projetdetail
     );
@@ -32,12 +36,19 @@ export class ProjetdetailService {
   }
 
   public listProjetdetail() {
-    return this.http.get('http://localhost:8088/SpringMVC/ProjetDetailC/getallProjetdetails');
+    return this.http.get(
+      'http://localhost:8088/SpringMVC/ProjetDetailC/getallProjetdetails'
+    );
   }
   public findProjetdetailbyid(idProjetdetail: any) {
     return this.http.get(
       'http://localhost:8088/SpringMVC/ProjetDetailC/getProjetbyid' +
         idProjetdetail
+    );
+  }
+  public getData(): Observable<projetdetail[]> {
+    return this.http.get<projetdetail[]>(
+      'http://localhost:8088/SpringMVC/ProjetDetailC/getallProjetdetails'
     );
   }
 }

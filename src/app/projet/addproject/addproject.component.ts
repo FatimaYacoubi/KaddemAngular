@@ -11,10 +11,11 @@ import { projetdetail } from 'src/projetdetail';
 })
 export class AddprojectComponent implements OnInit {
   projets: any = {};
-  projeta: projet = new projet( '', '');
+  projeta = new projet();
+  ii!:number
   message: any;
   part1: boolean = false;
-  constructor(private service: ProjetService,private router:Router) {}
+  constructor(private service: ProjetService, private router: Router) {}
 
   close() {
     this.part1 = false;
@@ -24,19 +25,17 @@ export class AddprojectComponent implements OnInit {
     resp.subscribe((data) => (this.projets = data));
   }
 
-  public addprojet() {
-    let resp = this.service
-      .addprojet(this.projeta)
+  public addprojet(id: any) {
+    this.service
+      .addprojet(this.projeta, id)
       .subscribe((data) => (this.message = 'projet added'));
 
     this.part1 = true;
-  
   }
-
 
   goToVotes($myParam: string = ''): void {
     const navigationDetails: string[] = ['/project/list'];
-    if($myParam.length) {
+    if ($myParam.length) {
       navigationDetails.push($myParam);
     }
     this.router.navigate(navigationDetails);
