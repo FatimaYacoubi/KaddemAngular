@@ -209,7 +209,7 @@
                 <td>{{contrat.montantContrat}} dt</td>
 
                 <ng-container>
-                    <td>{{contrat.etudiantC?.nomE}} {{contrat.etudiantC?.prenomE}}</td>
+                    <td>{{contrat.etudiantC?.prenomE}}  {{contrat.etudiantC?.nomE}}</td>
                 </ng-container>
     
                 <td class="text-center"><button class="btn btn-danger btn-xs"(click)="deleteContrat(contrat.idContrat)"><i class="fa fa-trash"></i></button></td>
@@ -238,7 +238,9 @@
             <input type="text" name ="description" [(ngModel)]= contratToUpdate.descriptionContrat id="description">
             <input type="text" name ="archive" [(ngModel)]= contratToUpdate.archive  id="archive">
             <input type="text" name ="specialite" [(ngModel)]= contratToUpdate.specialite id="specialite">
-            <input required class="form-control"  type="text" name ="nome" [(ngModel)]="etudiant.idEtudiant" id="nome" placeholder="Nom Etudiant">
+            
+
+
             <button value="submit" type="submit">Log In</button>
     
         </form>

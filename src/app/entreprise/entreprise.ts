@@ -6,6 +6,8 @@ export class Entreprise {
    latitude: Number |undefined;
     longitude: Number |undefined;
     nbPlaceRest:number;
+    distance:number|undefined;
+
 
     constructor(  
         nomEntreprise: String,
@@ -13,7 +15,8 @@ export class Entreprise {
         latitude: Number,
         longitude: Number,
         nbPlaceRest:number,
-        idEntreprise?: number
+        idEntreprise?: number,
+        distance?:number
         )
     
     {   if(idEntreprise){ this.idEntreprise=idEntreprise;
@@ -22,6 +25,7 @@ export class Entreprise {
         this.nbPlaceRest=nbPlaceRest;
         this.latitude=latitude;
         this.longitude=longitude;
+        this.distance=distance;
     }
         else {
             this.nomEntreprise=nomEntreprise;
@@ -29,6 +33,7 @@ export class Entreprise {
             this.nbPlaceRest=nbPlaceRest;
             this.latitude=latitude;
             this.longitude=longitude;
+            this.distance=distance;
         }
     };
     

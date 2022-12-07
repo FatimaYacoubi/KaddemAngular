@@ -10,7 +10,7 @@ import { Specialite } from '../Specialite';
   styleUrls: ['./addcontrat.component.css']
 })
 export class AddcontratComponent implements OnInit {
-  etudiant :Etudiant = new Etudiant("","",1);
+  etudiant :Etudiant = new Etudiant("","");
 
 contrat: Contrat= new Contrat(new Date(),new Date(),Specialite.CLOUD,false,"",this.etudiant);
 message:any;

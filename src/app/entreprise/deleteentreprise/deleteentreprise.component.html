@@ -185,6 +185,7 @@
                 <th class="text-primary"><strong>Id </strong></th>
                 <th class="text-primary"><strong>Nom </strong></th>
                 <th class="text-primary"><strong>Localisation</strong></th>
+                <th class="text-primary"><strong>Distance</strong></th>
                 <th class="text-primary"><strong>Places Restantes </strong></th>
                 <th class="text-primary"><strong>Delete</strong></th>
                 <th class="text-primary"><strong>Edit </strong></th>
@@ -198,7 +199,9 @@
                 <td>{{entreprise.idEntreprise}}</td>
                 <td>{{entreprise.nomEntreprise}}</td>
                 <td>{{entreprise.locEntreprise}}</td>
+                <td>{{entreprise.distance}} Km</td>
                 <td>{{entreprise.nbPlaceRest}}</td>
+
                 <td class="text-center"><button class="btn btn-danger btn-xs"(click)="deleteEntreprise(entreprise.idEntreprise)"><i class="fa fa-trash"></i></button></td>
     
                 <label for="click" class="click-me"(click)="edit(entreprise)"><i class="fa-solid fa-wand-magic-sparkles"></i></label>
@@ -221,7 +224,7 @@
             <input type="text" name ="datedebut" [(ngModel)]= entrepriseToUpdate.nomEntreprise id="debut">
             <input type="text"  name ="datefin" [(ngModel)]= entrepriseToUpdate.locEntreprise  id="fin">
             <input type="number" name ="description" [(ngModel)]= entrepriseToUpdate.nbPlaceRest id="description">
-            <button value="submit" type="submit">Log In</button>
+            <button value="submit" type="submit">Update</button>
     
         </form>
           </div> 

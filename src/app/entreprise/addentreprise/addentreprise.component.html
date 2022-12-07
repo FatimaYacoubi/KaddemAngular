@@ -46,13 +46,13 @@
                       <p>Departement</p>
                     </a>
                   </li>
-                  <li class="nav-item active">
+                  <li class="nav-item">
                     <a class="nav-link" href="">
                       <i class="material-icons">content_paste</i>
                       <p>Contrats</p>
                     </a>
                   </li>
-                  <li class="nav-item ">
+                  <li class="nav-item active">
                     <a class="nav-link" href="">
                       <i class="material-icons">content_paste</i>
                       <p>Entreprises</p>
@@ -164,8 +164,8 @@
        <br>
        <br>
        <div align="center"id="alertcontrat" *ngIf="part1">
-        
-          <div style="position: absolute;z-index: 3;"class="alert alert-warning alert-with-icon"  >
+      <div></div>
+        <div  [ngStyle]="{'position': 'absolute','z-index': 3}"[ngClass]="getAlert()">
             <i class="material-icons" data-notify="icon">add_alert</i>
             <button (click)=close(); class="close" data-dismiss="alert" aria-label="Close">
               <i class="material-icons">close</i>
@@ -173,7 +173,7 @@
             <span data-notify="message">{{message}}</span>
           </div>
         </div>
-        <div style="margin-top:-50px ; margin-left: 240px;" class="content">
+        <div [ngStyle]="{'margin-left': '240px','margin-top':'-50px'}" class="content">
 
             <div class="container-fluid">
               <div class="row">
@@ -194,17 +194,17 @@
         <input required class="form-control" id="locE" #locE="ngModel" type="text" [(ngModel)]="entreprise.locEntreprise"  name="locE" placeholder="Localisation de l'entreprise" >
          </div>
          <div class="form-group">
-          <input required class="form-control" id="lat" #lat="ngModel" type="text" [(ngModel)]="entreprise.latitude"  name="lot" placeholder="Localisation de l'entreprise" >
+          <input required class="form-control" id="lat" #lat="ngModel" type="text" [(ngModel)]="entreprise.latitude"  name="lot" placeholder="Latitude de l'entreprise" >
            </div>
            <div class="form-group">
-            <input required class="form-control" id="lon" #lon="ngModel" type="text" [(ngModel)]="entreprise.longitude"  name="lon" placeholder="Localisation de l'entreprise" >
+            <input required class="form-control" id="lon" #lon="ngModel" type="text" [(ngModel)]="entreprise.longitude"  name="lon" placeholder="Longitude l'entreprise" >
              </div>
          <div class="form-group">
             <input required class="form-control" id="place" #place="ngModel" type="text" [(ngModel)]="entreprise.nbPlaceRest " name="place" placeholder="Places Restantes " >
              </div>
      <div class="d-flex flex-row align-items-center justify-content-between">
 <div align="center">  
-   <button class="btn btn-primary" type="submit" value="AddContrat" (click)="AddEntreprise()">Créer le Contrat</button> 
+   <button  class="btn btn-primary" type="submit" value="AddContrat" id="hy"(click)="AddEntreprise()">Créer le Contrat</button> 
 </div> </div> </div></form>
 
             </div>
@@ -213,17 +213,38 @@
   </div>
 
   </div>
-  <div class="map">
+  <div align="center" class="map">
   <agm-map 
   
    [longitude]="lng"
    [latitude]="lht"
-    [zoom]="zoom">
+    [zoom]="zoom"
+    >
+    <agm-marker
+      [latitude]="latt"
+      [longitude]="longg"
+     [label]="{color: 'white', fontSize: '9px', text: 'Kaddem' }"
+     [iconUrl]=" {
+      url:'../assets/img/kaddemping.png'
+   
+  }"
+     ></agm-marker>
     <agm-marker *ngFor="let entreprise of entreprises"
      [latitude]="entreprise.latitude"
      [longitude]="entreprise.longitude"
-    [label]="{color: 'white', fontSize: '9px', text: entreprise.nomEntreprise}"></agm-marker>
+    [label]="{color: 'white', fontSize: '9px', text: entreprise.nomEntreprise}"
+    [iconUrl]="
+    {
+      url: entreprise.isClicked ? '../assets/img/purplemarker.png' : '../assets/img/purplemarker.png'
    
+  }">
+    <agm-info-window>
+      <strong>Distance: {{entreprise.distance}} Km</strong><br/>
+    
+    </agm-info-window>
+  
+  
+  </agm-marker>
 </agm-map></div>
 
   <script>

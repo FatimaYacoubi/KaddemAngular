@@ -22,6 +22,8 @@ export class DeleteentrepriseComponent implements OnInit {
   { console.log(idEntreprise);
     let resp=this.service.deleteEntreprise(idEntreprise);
     resp.subscribe((data)=>this.entreprise=data);
+    window.location.reload();
+
   }
   edit(entreprise:any){
     this.entrepriseToUpdate = entreprise;
@@ -36,11 +38,10 @@ export class DeleteentrepriseComponent implements OnInit {
     resp.subscribe((data)=>this.entreprises=data);
    
       return Object.keys(this.entreprise.data);
-    
   }
   public AddEntreprise(){
     let resp=this.service.addEntreprise(this.entreprise);
-    resp.subscribe((data)=>this.message="Entreprose Ajouté!");
+    resp.subscribe((data)=>this.message="Entreprise Ajouté!");
     this.part1=true;
 }
 

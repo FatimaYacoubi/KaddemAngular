@@ -15,32 +15,32 @@ export class AddcontratService {
   public addContrat(contrat:any){
     console.log("hello");
     console.log(contrat);
-    return this.http.post("http://localhost:8002/SpringMVC/ContratC/addContrat",contrat,{responseType:'text'as 'json'});
+    return this.http.post("http://localhost:5001/api/authentication/addContrat",contrat,{responseType:'text'as 'json'});
   }
   public getContrats(){
-    return this.http.get("http://localhost:8002/SpringMVC/ContratC/AllContrats")
+    return this.http.get("http://localhost:5001/api/authentication/AllContrats")
   }
   public deleteContrat(idContrat:any){
-    return this.http.delete("http://localhost:8002/SpringMVC/ContratC/deleteContrat/"+idContrat)
+    return this.http.delete("http://localhost:5001/api/authentication/deleteContrat/"+idContrat)
   }
   public UpdateContrat(contrat:any){
-    return this.http.put("http://localhost:8002/SpringMVC/ContratC/updateContrat",contrat)
+    return this.http.put("http://localhost:5001/api/authentication/updateContrat",contrat)
   }
   public exportPdfContratt():Observable<Blob>
   { 
-    return this.http.get('http://localhost:8002/SpringMVC/ContratC/export/pdf',{responseType:'blob'});}
+    return this.http.get('http://localhost:5001/api/authentication/export/pdf',{responseType:'blob'});}
   
   public exportExcelContratt():Observable<Blob>
   { 
-    return this.http.get('http://localhost:8002/SpringMVC/ContratC/export/excel',{responseType:'blob'});}
+    return this.http.get('http://localhost:5001/api/authentication/export/excel',{responseType:'blob'});}
   
   public getContratBySpecialite(specialite:any)
   {
-    return this.http.get('http://localhost:8002/SpringMVC/ContratC/specialite/'+ specialite);
+    return this.http.get('http://localhost:5001/api/authentication/specialite/'+ specialite);
   }
   
     public getTypePercentage(): Observable<Array< ITypePercentage>> {
-      return this.http.get('http://localhost:8002/SpringMVC/ContratC/chartbyspecialite')
+      return this.http.get('http://localhost:5001/api/authentication/chartbyspecialite')
         .pipe(map((d:any) => d));
     }
   }

@@ -11,21 +11,19 @@ export class EntrepriseService {
   constructor(private http:HttpClient) { }
   entreprises: any={};
   public addEntreprise(Entreprise:any){
-    console.log("hello");
-    console.log(Entreprise);
-    return this.http.post("http://localhost:8002/SpringMVC/Entreprise/addEntreprise",Entreprise,{responseType:'text'as 'json'});
+    return this.http.post("http://localhost:5001/api/authentication/addEntreprise",Entreprise,{responseType:'text'as 'json'});
   }
   public getEntreprises(){
-    return this.http.get("http://localhost:8002/SpringMVC/Entreprise/AllEntreprises")
+    return this.http.get("http://localhost:5001/api/authentication/AllEntreprises")
   }
   public deleteEntreprise(idEntreprise:any){
-    return this.http.delete("http://localhost:8002/SpringMVC/Entreprise/deleteEntreprise/"+idEntreprise)
+    return this.http.delete("http://localhost:5001/api/authentication/deleteEntreprise/"+idEntreprise)
   }
   public UpdateEntreprise(entreprise:any){
-    return this.http.put("http://localhost:8002/SpringMVC/Entreprise/updateEntreprise",entreprise)
+    return this.http.put("http://localhost:5001/api/authentication/updateEntreprise",entreprise)
   }
-  public getData():Observable<Object>
-  {
-    return this.http.get("http://localhost:8002/SpringMVC/Entreprise/AllEntreprises")
+  public distance(Entreprise:any){
+    return this.http.post("http://localhost:5001/api/authentication/distance",Entreprise,{responseType:'text'as 'json'});
   }
+ 
 }

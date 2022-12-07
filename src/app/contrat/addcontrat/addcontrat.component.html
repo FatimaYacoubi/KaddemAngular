@@ -218,11 +218,10 @@
          <input required class="form-control"  type="text" [(ngModel)]="contrat.descriptionContrat " placeholder="Description du Contrat" name="description" >
              </div>
              <div class="form-group">
-               <input required class="form-control"  type="text" [(ngModel)]="etudiant.nomE" placeholder="Nom de l'étudiant associé " name="etudiantC" >
+               <input required class="form-control"  type="text" [(ngModel)]="etudiant.idEtudiant" placeholder="Nom de l'étudiant associé " name="etudiantC" >
                    </div>
-                   <div class="form-group">
-                     <input required class="form-control"  type="text" [(ngModel)]="etudiant.prenomE" placeholder="Prenom de l'étudiant associé" name="etudiantC" >
-                         </div>
+                   
+                  
      <div class="d-flex flex-row align-items-center justify-content-between">
 <div align="center">  
    <button class="btn btn-primary" type="submit" value="AddContrat"(click)="AddContratA()" [disabled]="!f.valid">Créer le Contrat</button> 
