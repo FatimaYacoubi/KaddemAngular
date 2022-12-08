@@ -10,7 +10,11 @@ const routes: Routes = [{path:"",redirectTo:"/",pathMatch:"full"},
 {path:"contrat",loadChildren:()=>import("./contrat/contrat.module").then(m=>m.ContratModule),
 },
 {path:"entreprise",loadChildren:()=>import("./entreprise/entreprise.module").then(m=>m.EntrepriseModule),
-}
+},
+{ path: 'equipe', loadChildren: () => import('./Equipe/equipe.module').then(m => m.EquipeModule) },
+
+{ path: 'equipeDetail', loadChildren: () => import('./detail-equipe/detail-equipe.module').then(m => m.DetailEquipeModule) },
+
 ];
 
 @NgModule({

@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { NgxChartsModule }from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { BackModule } from '../back/back.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormsModule,
     ContratRoutingModule,
     NgxChartsModule,
-    NgxPaginationModule
+    NgxPaginationModule, 
+    BackModule
   ]
 })
 export class ContratModule { }

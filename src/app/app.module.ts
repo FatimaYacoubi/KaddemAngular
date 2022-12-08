@@ -8,7 +8,6 @@ import { UserModule } from './user/user.module';
 import { ContratModule } from './contrat/contrat.module';
 import { DepartementModule } from './departement/departement.module';
 import { ProjetModule } from './projet/projet-.module';
-import { EquipeModule } from './equipe/equipe.module';
 import { UniversiteModule } from './universite/universite.module';
 import { AddcontratService } from './contrat/addcontrat.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -21,7 +20,9 @@ import { AddentrepriseComponent } from './entreprise/addentreprise/addentreprise
 import { DeleteentrepriseComponent } from './entreprise/deleteentreprise/deleteentreprise.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AgmCoreModule } from '@agm/core';
-
+import { BackModule } from './back/back.module';
+import { EquipeModule } from './Equipe/equipe.module';
+import { DetailEquipeModule } from './detail-equipe/detail-equipe.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,10 +46,11 @@ import { AgmCoreModule } from '@agm/core';
     ContratModule,
     DepartementModule,
     ProjetModule,
-    EquipeModule,
     UniversiteModule,
     EntrepriseModule,
     NgxPaginationModule,
+    BackModule,
+    DetailEquipeModule
   ],
   providers: [AddcontratService],
   bootstrap: [AppComponent]
