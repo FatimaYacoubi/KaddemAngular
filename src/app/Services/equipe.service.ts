@@ -12,7 +12,7 @@ export class EquipeService {
   constructor(private http:HttpClient) { }
 
   GetAllEquipe(): Observable<Equipe[]>{
-    return this.http.get<Equipe[]>(this.EqURL+'AffichageEquipe')
+    return this.http.get<Equipe[]>(this.EqURL+'Affichage')
   }
   GetEquipeById(idE:any): Observable<Equipe[]>{
     return this.http.get<Equipe[]>(this.EqURL+'EquipeById/'+idE)
@@ -25,5 +25,11 @@ export class EquipeService {
   }
   UpdateEquipe(equipe: Equipe){
     return this.http.put<Equipe>(this.EqURL+'updateEquipe',equipe);
+  }
+  search(Keyword:any):  Observable<any> {
+    return this.http.get(this.EqURL+'search/'+Keyword);
+  }
+  stats(): Observable<any> {
+    return this.http.get(this.EqURL+'retrieve-all-equipe-stats');
   }
 }

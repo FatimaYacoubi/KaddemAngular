@@ -165,7 +165,16 @@
         <br>
         <br>
         <br>
-        
+        <div class="card-header card-header-primary">
+                 
+                  
+          <p>
+            <input type="text" [(ngModel)]="searchvalue"  (keyup)="onsearch()" class="form-control search-text-indent  searchbar-positioning" placeholder="Search...">
+          </p>
+         
+
+          
+        </div>
        
     <div style="background-color: #1a2035;">
         <div class="container-fluid">
@@ -194,8 +203,7 @@
                 <td>{{equipe.idEquipe}}</td>
                 <td>{{equipe.nomEquipe}}</td>
                 <td>{{equipe.niveau}}</td>
-                <td class="text-center"><button class="btn btn-danger btn-xs"(click)="deleteEquipe(equipe.idEquipe)"><i class="fa fa-trash"></i></button></td>
-                    <label for="click" class="click-me"(click)="edit(equipe)"><i class="fa-solid fa-wand-magic-sparkles"></i>
+                <td><app-input-output-equipe [EquipeInput]="equipe" (notif)="afterDeleteEquipe($event)"></app-input-output-equipe></td>                    <label   class="btn btn-primary pull-right"  for="click" class="click-me"(click)="edit(equipe)"><i class="fa-solid fa-wand-magic-sparkles"></i>
                     </label>
               </tr>
         </tbody>

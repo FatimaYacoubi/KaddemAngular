@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Equipe } from '../Models/Equipe';
 import { Niveau } from '../Models/Niveau';
 import { EquipeService } from '../Services/equipe.service';
@@ -11,9 +12,10 @@ import { EquipeService } from '../Services/equipe.service';
 })
 export class EquipeComponent implements OnInit {
   equipe: Equipe= new Equipe("",Niveau.EXPERT)
+
   constructor(private equipeservice:EquipeService, private route:Router) { }
 message:any;
-  ngOnInit(): void {
+  ngOnInit(): void { 
   }
  // AddEquipe()
   //{
@@ -24,4 +26,6 @@ message:any;
     let resp=this.equipeservice.AddEquipe(this.equipe);
     resp.subscribe((data)=>this.message="Equipe Ajouté!");
     }
+
+
 }

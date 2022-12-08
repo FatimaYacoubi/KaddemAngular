@@ -8,6 +8,8 @@ import { AddEquipeComponent } from './AddEquipe/add-equipe.component';
 import { UpdateEquipeComponent } from './UpdateEquipe/update-equipe.component';
 import { DetailEquipeComponent } from '../detail-equipe/detail-equipe.component';
 import { DetailEquipeModule } from '../detail-equipe/detail-equipe.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { InputOutputEquipeComponent } from './input-output-equipe/input-output-equipe.component';
 
 
 @NgModule({
@@ -15,8 +17,9 @@ import { DetailEquipeModule } from '../detail-equipe/detail-equipe.module';
     EquipeComponent,
     AddEquipeComponent,
     UpdateEquipeComponent,
-    
-    UpdateEquipeComponent
+    DashboardComponent,
+    UpdateEquipeComponent,
+    InputOutputEquipeComponent
     
     
   ],

@@ -27,12 +27,14 @@ import { Departement } from './Models/Departement';
 import { ProfesseurModule } from './professeur/professeur.module';
 import { DetailEquipe } from './Models/DetailEquipe';
 import { Equipe } from './Models/Equipe';
+
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     AddentrepriseComponent,
     DeleteentrepriseComponent,
+  
    
   
   ],
