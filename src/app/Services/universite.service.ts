@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { PagePa } from '../Models/PagePa';
 import { Universite } from '../Models/Universite';
 
 @Injectable({
@@ -26,4 +27,20 @@ export class UniversiteService {
   Updateuniversite(universite: Universite){
     return this.http.put<Universite>(this.UnivURL+'updateUniversite',universite);
   }
+  search(Keyword:any):  Observable<any> {
+    return this.http.get(this.UnivURL+'search/'+Keyword);
+  }
+
+  getPagableCustomers(pageNumber: number, 
+    pageSize: number): Observable<PagePa> {
+        // Initialize Params Object
+        let params = new HttpParams();
+
+        // Begin assigning parameters
+        params = params.append('page', pageNumber.toString());
+        params = params.append('size', pageSize.toString());
+
+        return this.http.get<PagePa>(this.UnivURL+ 'findAllEPaginate', { params: params })
+
+        }
 }

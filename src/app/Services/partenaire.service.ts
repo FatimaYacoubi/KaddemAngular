@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { PagePa } from '../Models/PagePa';
 import { Partenaire } from '../Models/Partenaire';
 
 @Injectable({
@@ -12,8 +13,8 @@ export class PartenaireService {
 
   constructor(private http:HttpClient) { }
 
-  GetAllPartenaire(): Observable<Partenaire[]>{
-    return this.http.get<Partenaire[]>(this.UnivURL)
+  GetAllPartenaire(): Observable<any>{
+    return this.http.get<any>(this.UnivURL)
   }
   GetPartenaireById(idU:any): Observable<Partenaire[]>{
     return this.http.get<Partenaire[]>(this.UnivURL+'retrieve-partenaire/'+idU)
@@ -38,6 +39,17 @@ export class PartenaireService {
   search(Keyword:any):  Observable<any> {
     return this.http.get(this.UnivURL+'search/'+Keyword);
   }
+  getPagableCustomers(pageNumber: number, 
+    pageSize: number): Observable<PagePa> {
+        // Initialize Params Object
+        let params = new HttpParams();
 
+        // Begin assigning parameters
+        params = params.append('page', pageNumber.toString());
+        params = params.append('size', pageSize.toString());
+
+        return this.http.get<PagePa>(this.UnivURL+ 'findAllEPaginate', { params: params })
+
+        }
 
 }
