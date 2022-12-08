@@ -117,7 +117,7 @@
                   <div class="input-group no-border">
                  <!--    <input type="text" name="specialite" [(ngModel)]="specialite" class="form-control" placeholder="Search...">
                    <button type="button" (click)="findContratBySpecialite()" class="btn btn-default btn-round btn-just-icon">
-                   -->   <i class="material-icons">search</i>
+                   -->   
                       <div class="ripple-container"></div>
                     <!-- </button> -->
                   </div>
@@ -165,12 +165,13 @@
         <br>
         <br>
         <br>
-        <div class="card-header card-header-primary">
+        <div class="input-group rounded">
                  
                   
           <p>
-            <input type="text" [(ngModel)]="searchvalue"  (keyup)="onsearch()" class="form-control search-text-indent  searchbar-positioning" placeholder="Search...">
+            <input type="text" [(ngModel)]="searchvalue"  (keyup)="onsearch()" class="form-control rounded" aria-label="Search" aria-describedby="search-addon" placeholder="Search...">
           </p>
+        
          
 
           
@@ -223,7 +224,7 @@
      
             <input type="text" name ="nomEquipe" [(ngModel)]= equipeToUpdate.nomEquipe  id="nomEquipe">
             <input type="text" name ="niveau" [(ngModel)]= equipeToUpdate.niveau id="niveau">
-              <button value="submit" type="submit">BADDELNI</button>
+         <a class="nav-link" [routerLink]="['/equipe/update']"> <button value="submit" type="submit">BADDELNI</button> </a> 
     
         </form>
           </div> 

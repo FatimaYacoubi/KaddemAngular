@@ -196,7 +196,7 @@
                   </div>
                   <div class="card-body">
     
-       <form _lpchecked="1" #f="ngForm">         
+ <!--     <form _lpchecked="1" #f="ngForm">         
         <div class="form-group">
             <input required class="form-control"  type="number" [(ngModel)]="detailequipe.salle" placeholder="Salle " name="DetailEquipeC" >
             </div>
@@ -210,6 +210,32 @@
     </div>  
           </div>
        </form>
+-->
+
+
+       <!--REACTIVE FORM-->
+
+       <form _lpchecked="1" [formGroup]="detailEquipeForm"(ngSubmit)="onSubmitform()">
+        <div class="row">
+ <div class="form-group">
+    <input required class="form-control" id="nomDE" [formControlName]="'salle'" type="text" [(ngModel)]="detailequipe.salle"  name="salle" placeholder="salle" >
+    <span 
+*ngIf="!detailEquipeForm.get('salle')?.valid && detailEquipeForm.get('salle')?.touched"
+    class="help-block"> salle invalide</span>
+    </div>
+ <div class="form-group">
+    <input required class="form-control" id="thematique" [formControlName]="'thematique'" type="text" [(ngModel)]="detailequipe.thematique"  name="thematique" placeholder="thematique" >
+    <span 
+    *ngIf="!detailEquipeForm.get('thematique')?.valid && detailEquipeForm.get('thematique')?.touched"
+            class="help-block">thematique</span>  
+  </div>
+   
+ <div class="d-flex flex-row align-items-center justify-content-between">
+<div align="center">  
+<button  class="btn btn-primary" type="submit" value="addDetailEquipe" [disabled]="detailEquipeForm.invalid" id="hy"(click)="AddDetailEquipe()">Ajouter Detail</button> 
+</div> </div> </div></form>
+
+       <!--END REACTIVE FORM-->
        
       <div class="fixed-plugin">
         <div class="dropdown show-dropdown">

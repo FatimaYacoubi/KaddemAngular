@@ -214,6 +214,28 @@
     <button class="btn btn-primary" type="submit" value="AddEquipe"(click)="AddEquipe()" [disabled]="!f.valid">Créer Equipe</button> 
     </div>  
           </div>
+    <!--      <div class="form-group">
+            <input
+              required
+              class="form-control"
+              id="nomEquipe"
+              #nomEquipe="ngModel"
+              type="text"
+              [(ngModel)]="equipe.nomEquipe"
+              name="nomEquipe"
+              [ngClass]="{ 'is-invalid': f.submitted && nomEquipe.errors}"
+
+              placeholder="nomEquipe"
+            />
+            <div *ngIf="f.submitted && nomEquipe.errors"
+            class="invalid-feedback">
+            <div *ngIf="nomEquipe.errors['required']">nomEquipe is
+                required</div>
+        </div>
+        <div align="center">  
+          <button class="btn btn-primary" type="submit" value="AddEquipe"(click)="AddEquipe()" >Créer Equipe</button> 
+          </div>
+        </div>-->
        </form>
        
       <div class="fixed-plugin">

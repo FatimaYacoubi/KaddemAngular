@@ -16,7 +16,8 @@ import { UpdateDetailEquipeComponent } from './update-detail-equipe/update-detai
   imports: [
     CommonModule,
     DetailEquipeRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class DetailEquipeModule { }
