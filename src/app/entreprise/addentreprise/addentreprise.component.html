@@ -46,31 +46,46 @@
                 <div class="col-md-8">
                   <div class="card">
                     <div class="card-header card-header-primary">
-                      <h4 class="card-title">Edit Profile</h4>
-                      <p class="card-category">Complete your profile</p>
+                      <h4 class="card-title">Ajouter Entreprise</h4>
+                      <p class="card-category">Entrez informations entreprise</p>
                     </div>
                     <div class="card-body">
 
-<form _lpchecked="1" #f="ngForm">
+<form _lpchecked="1" [formGroup]="entrepriseForm"(ngSubmit)="onSubmitform()">
             <div class="row">
      <div class="form-group">
-        <input required class="form-control" id="nomE" #nomE="ngModel" type="text" [(ngModel)]="entreprise.nomEntreprise"  name="nomE" placeholder="Nom de l'entreprise" >
+        <input required class="form-control" id="nomE" [formControlName]="'nomEntreprise'" type="text" [(ngModel)]="entreprise.nomEntreprise"  name="nomE" placeholder="Nom de l'entreprise" >
+        <span 
+*ngIf="!entrepriseForm.get('nomEntreprise')?.valid && entrepriseForm.get('nomEntreprise')?.touched"
+        class="help-block"> Nom d'entreprise invalide</span>
         </div>
      <div class="form-group">
-        <input required class="form-control" id="locE" #locE="ngModel" type="text" [(ngModel)]="entreprise.locEntreprise"  name="locE" placeholder="Localisation de l'entreprise" >
-         </div>
+        <input required class="form-control" id="locE" [formControlName]="'locEntreprise'" type="text" [(ngModel)]="entreprise.locEntreprise"  name="locE" placeholder="Localisation de l'entreprise" >
+        <span 
+        *ngIf="!entrepriseForm.get('locEntreprise')?.valid && entrepriseForm.get('locEntreprise')?.touched"
+                class="help-block">localisation invalide</span>  
+      </div>
          <div class="form-group">
-          <input required class="form-control" id="lat" #lat="ngModel" type="text" [(ngModel)]="entreprise.latitude"  name="lot" placeholder="Latitude de l'entreprise" >
-           </div>
+          <input required class="form-control" id="lat" [formControlName]="'latitude'" type="text" [(ngModel)]="entreprise.latitude"  name="lot" placeholder="Latitude de l'entreprise" >
+          <span 
+          *ngIf="!entrepriseForm.get('latitude')?.valid && entrepriseForm.get('latitude')?.touched"
+                  class="help-block">latitude d'entreprise invalide</span>   
+        </div>
            <div class="form-group">
-            <input required class="form-control" id="lon" #lon="ngModel" type="text" [(ngModel)]="entreprise.longitude"  name="lon" placeholder="Longitude l'entreprise" >
-             </div>
+            <input required class="form-control" id="lon"[formControlName]="'longitude'" type="text" [(ngModel)]="entreprise.longitude"  name="lon" placeholder="Longitude l'entreprise" >
+            <span 
+            *ngIf="!entrepriseForm.get('longitude')?.valid && entrepriseForm.get('longitude')?.touched"
+                    class="help-block">longitude d'entreprise invalide</span>   
+          </div>
          <div class="form-group">
-            <input required class="form-control" id="place" #place="ngModel" type="text" [(ngModel)]="entreprise.nbPlaceRest " name="place" placeholder="Places Restantes " >
-             </div>
+            <input required class="form-control" id="place" [formControlName]="'place'" type="text" [(ngModel)]="entreprise.nbPlaceRest " name="place" placeholder="Places Restantes " >
+            <span 
+            *ngIf="!entrepriseForm.get('place')?.valid && entrepriseForm.get('place')?.touched"
+                    class="help-block">Entrer un chiffre > 10</span>   
+          </div>
      <div class="d-flex flex-row align-items-center justify-content-between">
 <div align="center">  
-   <button  class="btn btn-primary" type="submit" value="AddContrat" id="hy"(click)="AddEntreprise()">Créer le Contrat</button> 
+   <button  class="btn btn-primary" type="submit" value="AddContrat" [disabled]="entrepriseForm.invalid" id="hy"(click)="AddEntreprise()">Créer le Contrat</button> 
 </div> </div> </div></form>
 
             </div>

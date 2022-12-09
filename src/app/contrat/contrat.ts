@@ -8,18 +8,20 @@ export class Contrat{
     archive: boolean|undefined;
     descriptionContrat: String|undefined;
     etudiantC: Etudiant|undefined;
+    montantContrat?: number|undefined;
 
     constructor( dateDebutContrat: Date ,
         datefinContrat: Date ,
        specialite: Specialite,
        archive: boolean, descriptionContrat: String,
-       etudiantC: Etudiant)
+       etudiantC: Etudiant,montantContrat: number)
     {  this.dateDebutContrat=dateDebutContrat;
         this.datefinContrat=datefinContrat;
         this.specialite=specialite;
         this.archive=archive;
        this.descriptionContrat=descriptionContrat;
        this.etudiantC=etudiantC;
+       this.montantContrat=montantContrat;
 
     };
 

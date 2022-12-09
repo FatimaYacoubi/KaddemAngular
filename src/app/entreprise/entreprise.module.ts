@@ -4,11 +4,12 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { EntrepriseRoutingModule } from './entreprise-routing.module';
 import { AgmCoreModule } from '@agm/core';
 import { BackModule } from '../back/back.module';
-
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     EntrepriseRoutingModule,
    NgxPaginationModule,
    AgmCoreModule.forRoot({

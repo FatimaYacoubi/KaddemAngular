@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BubbleChartComponent } from '@swimlane/ngx-charts';
 import { Entreprise } from '../entreprise';
 import { EntrepriseService } from '../entreprise.service';
@@ -11,7 +12,7 @@ import { EntrepriseService } from '../entreprise.service';
 export class AddentrepriseComponent implements OnInit {
   idEntreprise:any;
   entreprises: any={};
-
+entrepriseForm!: FormGroup;
   entreprise: Entreprise= new Entreprise("","",0,0,1);
 message:any;
 display: any;
@@ -38,8 +39,20 @@ getAlert(){
 
   ngOnInit(){
     let resp=this.service.getEntreprises();
-    resp.subscribe((data)=>this.entreprises=data);  }
+    resp.subscribe((data)=>this.entreprises=data); 
+    this.entrepriseForm = new FormGroup({
+      'latitude': new FormControl([Validators.pattern(/^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/)
+    ,Validators.required,Validators.min(1)]),
+      'longitude': new FormControl([Validators.pattern(/^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/)
+      ,Validators.required,Validators.min(1)]),
+      'nomEntreprise': new FormControl([Validators.required,Validators.pattern(/^[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ ]+$/)]),
+      'locEntreprise': new FormControl(null,Validators.required),
+      'place': new FormControl(null,[Validators.required,Validators.pattern(/^[0-9]\d*$/)
+,Validators.min(10)])
+
+        }); }
   
+
   public AddEntreprise(){
     let resp=this.service.addEntreprise(this.entreprise);
     resp.subscribe((data)=>this.message="Entreprise Ajouté!");
@@ -47,4 +60,7 @@ getAlert(){
  
 }
 
+onSubmitform(){
+  console.log(this.entrepriseForm);
+}
 }

@@ -23,6 +23,7 @@ import { BackModule } from './back/back.module';
 import { EquipeModule } from './Equipe/equipe.module';
 import { DetailEquipeModule } from './detail-equipe/detail-equipe.module';
 import { ProjetModule } from './projet/projet-.module';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,7 @@ import { ProjetModule } from './projet/projet-.module';
     UserModule,
     ContratModule,
     DepartementModule,
-
+ReactiveFormsModule,
     UniversiteModule,
     EntrepriseModule,
     NgxPaginationModule,

@@ -215,11 +215,16 @@
                 <option value="false"> Pas d'Archive
         </datalist> </div>
         <div class="form-group">
+          <input required class="form-control"  type="text" [(ngModel)]="contrat.montantContrat" placeholder="montant du contrat en Dt " name="montant" >
+              </div>
+        <div class="form-group">
          <input required class="form-control"  type="text" [(ngModel)]="contrat.descriptionContrat " placeholder="Description du Contrat" name="description" >
              </div>
              <div class="form-group">
-               <input required class="form-control"  type="text" [(ngModel)]="etudiant.idEtudiant" placeholder="Nom de l'étudiant associé " name="etudiantC" >
+               <input required class="form-control"  type="text" [(ngModel)]="etudiant.idEtudiant" placeholder="Identifiant de l'étudiant associé " name="etudiantC" >
                    </div>
+                   
+
                    
                   
      <div class="d-flex flex-row align-items-center justify-content-between">

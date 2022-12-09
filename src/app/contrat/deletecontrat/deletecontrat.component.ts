@@ -20,7 +20,7 @@ export class DeletecontratComponent implements OnInit {
  p: number=1;
 
  etudiant :Etudiant = new Etudiant("","");
- contratToUpdate: Contrat= new Contrat(new Date(),new Date(),Specialite.CLOUD,false,"",this.etudiant);
+ contratToUpdate: Contrat= new Contrat(new Date(),new Date(),Specialite.CLOUD,false,"",this.etudiant,200);
  specialite: string="";
 
   constructor(private service:AddcontratService) { }

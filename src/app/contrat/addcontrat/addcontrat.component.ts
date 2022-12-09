@@ -12,7 +12,7 @@ import { Specialite } from '../Specialite';
 export class AddcontratComponent implements OnInit {
   etudiant :Etudiant = new Etudiant("","");
 
-contrat: Contrat= new Contrat(new Date(),new Date(),Specialite.CLOUD,false,"",this.etudiant);
+contrat: Contrat= new Contrat(new Date(),new Date(),Specialite.CLOUD,false,"",this.etudiant,200);
 message:any;
 part1: boolean = false;
 
