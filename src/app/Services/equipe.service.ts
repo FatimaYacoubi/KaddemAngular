@@ -1,13 +1,23 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Equipe } from '../Models/Equipe';
+import { PaginationEquipe } from '../Models/PaginationEquipe';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EquipeService {
+  getPagableCustomers(pageNumber: number, 
+    pageSize: number): Observable<PaginationEquipe> {
+// Initialize Params Object
+let params = new HttpParams();
+// Begin assigning parameters
+params = params.append('page', pageNumber.toString());
+params = params.append('size', pageSize.toString());
+return  this.http.get<PaginationEquipe>("http://localhost:5001/api/authentication/"+'findAllEPaginate',{params:params})
 
+}
   EqURL="http://localhost:5001/api/authentication/";
   constructor(private http:HttpClient) { }
 
@@ -32,4 +42,6 @@ export class EquipeService {
   stats(): Observable<any> {
     return this.http.get(this.EqURL+'retrieve-all-equipe-stats');
   }
+
+  
 }

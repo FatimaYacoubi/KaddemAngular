@@ -204,12 +204,20 @@
                 <td>{{equipe.idEquipe}}</td>
                 <td>{{equipe.nomEquipe}}</td>
                 <td>{{equipe.niveau}}</td>
-                <td><app-input-output-equipe [EquipeInput]="equipe" (notif)="afterDeleteEquipe($event)"></app-input-output-equipe></td>                    <label   class="btn btn-primary pull-right"  for="click" class="click-me"(click)="edit(equipe)"><i class="fa-solid fa-wand-magic-sparkles"></i>
+                <td><app-input-output-equipe [EquipeInput]="equipe" (notif)="afterDeleteEquipe($event)"></app-input-output-equipe></td>                    <label   [ngStyle]="{'color':'green'}" class="btn"  for="click" class="click-me"(click)="edit(equipe)"><i class="fa-solid  "></i>
                     </label>
               </tr>
         </tbody>
         </table>
-      
+        <ul class="pagination justify-content-center">
+          <li class="page-item"><a (click)="previousClick()" class="page-link">Previous</a></li>
+          <li *ngFor='let index of pageIndexes' class="page-item" [ngClass]="active(index)">
+                  <a (click)="getPaginationWithIndex(index)" class="page-link">
+                    {{index + 1}}
+                  </a>
+          </li>
+          <li class="page-item"><a (click)="nextClick()" class="page-link">Next</a></li>
+        </ul>
     <!-- The form -->
       <!-- The form -->
       <div> <input type="checkbox" id="click">
