@@ -169,7 +169,7 @@
                  
                   
           <p>
-            <input type="text" [(ngModel)]="searchvalue"  (keyup)="onsearch()" class="form-control rounded" aria-label="Search" aria-describedby="search-addon" placeholder="Search...">
+            <input type="text" [ngStyle]="{ 'background-color':'purple', 'font-weight': 'bold'}" [(ngModel)]="searchvalue"  (keyup)="onsearch()" class="form-control rounded" aria-label="Search" aria-describedby="search-addon" placeholder="Search...">
           </p>
         
          
@@ -204,7 +204,8 @@
                 <td>{{equipe.idEquipe}}</td>
                 <td>{{equipe.nomEquipe}}</td>
                 <td>{{equipe.niveau}}</td>
-                <td><app-input-output-equipe [EquipeInput]="equipe" (notif)="afterDeleteEquipe($event)"></app-input-output-equipe></td>                    <label   [ngStyle]="{'color':'green'}" class="btn"  for="click" class="click-me"(click)="edit(equipe)"><i class="fa-solid  "></i>
+                <td><app-input-output-equipe [EquipeInput]="equipe" (notif)="afterDeleteEquipe($event)"></app-input-output-equipe></td>                   
+                 <label for="click" class="btn btn-success click-me"(click)="edit(equipe)">Update
                     </label>
               </tr>
         </tbody>
