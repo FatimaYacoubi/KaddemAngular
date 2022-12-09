@@ -7,7 +7,6 @@ import { HomeModule } from './home/home.module';
 import { UserModule } from './user/user.module';
 import { ContratModule } from './contrat/contrat.module';
 import { DepartementModule } from './departement/departement.module';
-import { ProjetModule } from './projet/projet-.module';
 import { UniversiteModule } from './universite/universite.module';
 import { AddcontratService } from './contrat/addcontrat.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -23,6 +22,7 @@ import { AgmCoreModule } from '@agm/core';
 import { BackModule } from './back/back.module';
 import { EquipeModule } from './Equipe/equipe.module';
 import { DetailEquipeModule } from './detail-equipe/detail-equipe.module';
+import { ProjetModule } from './projet/projet-.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,10 +45,11 @@ import { DetailEquipeModule } from './detail-equipe/detail-equipe.module';
     UserModule,
     ContratModule,
     DepartementModule,
-    ProjetModule,
+
     UniversiteModule,
     EntrepriseModule,
     NgxPaginationModule,
+    ProjetModule,
     BackModule,
     DetailEquipeModule
   ],

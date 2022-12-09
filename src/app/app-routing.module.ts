@@ -14,6 +14,8 @@ const routes: Routes = [{path:"",redirectTo:"/",pathMatch:"full"},
 { path: 'equipe', loadChildren: () => import('./Equipe/equipe.module').then(m => m.EquipeModule) },
 
 { path: 'equipeDetail', loadChildren: () => import('./detail-equipe/detail-equipe.module').then(m => m.DetailEquipeModule) },
+{ path: 'projet', loadChildren: () => import('./projet/projet-.module').then(m => m.ProjetModule) },
+{ path: 'projetdetail', loadChildren: () => import('./projectdetails/projectdetails.module').then(m => m.ProjectdetailsModule) },
 
 ];
 
