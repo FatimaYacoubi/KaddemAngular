@@ -14,9 +14,13 @@ import { projetdetail } from 'src/projetdetail';
 })
 export class ListprojectdetailsComponent implements OnInit {
   projetdetails: any;
+  projetdetailsdate: any;
   message: any;
   projetdetail: any;
   hide: Boolean = true;
+  hidelist: Boolean = false;
+  hidelistdate: Boolean = true;
+  search: String = '';
 
   refresh$ = new BehaviorSubject(null);
   list?: Observable<projetdetail[]>;
@@ -58,16 +62,28 @@ export class ListprojectdetailsComponent implements OnInit {
     return this.formgroup.get('dateLimite');
   }
 
+  formgroupdates = this.fb.group({
+    dated: new Date(),
+    datel: new Date(),
+  });
+
+  get dated() {
+    return this.formgroupdates.get('dated');
+  }
+  get datel() {
+    return this.formgroupdates.get('datel');
+  }
+
   ngOnInit(): void {
-    this.list = this.refresh$.pipe(switchMap(() => this.service.getData()));
+    this.list = this.refresh$.pipe(switchMap((_) => this.service.getData()));
   }
 
   public deleteProjetdetail(idProjetdetail: any) {
     console.log(idProjetdetail);
-    this.service
-      .removeProjetdetail(idProjetdetail)
-      .subscribe((data) => (this.projetdetails = data));
-    this.refresh$.next(null);
+    this.service.removeProjetdetail(idProjetdetail).subscribe((data) => {
+      this.projetdetails = data;
+      this.refresh$.next(null);
+    });
   }
 
   getProjetdetail(projet: projetdetail) {
@@ -87,8 +103,11 @@ export class ListprojectdetailsComponent implements OnInit {
   }
 
   updateProjetdetailt(f: any) {
-    this.service.updateProjetdetail(f).subscribe((d) => console.log(d));
-    this.refresh$.next(null);
+    this.service.updateProjetdetail(f).subscribe((d) => {
+      console.log(d);
+      this.refresh$.next(null);
+      this.hide = true;
+    });
   }
 
   goToVotes($myParam: string = ''): void {
@@ -97,5 +116,34 @@ export class ListprojectdetailsComponent implements OnInit {
       navigationDetails.push($myParam);
     }
     this.router.navigate(navigationDetails);
+  }
+
+  resetlists() {
+    this.hidelist = false;
+    this.hidelistdate = true;
+  }
+
+  datebetweentwo(f: any) {
+    this.hidelist = true;
+    this.hidelistdate = false;
+    console.log(f.dated);
+    this.service
+      .findProjetdetailbydatebetweentwo(f.dated, f.datel)
+      .subscribe((d) => {
+        console.log(d);
+        this.projetdetails = d;
+      });
+  }
+
+  findbytechno(techno: String) {
+    console.log(techno);
+    if (techno.length != 0) {
+      this.service
+        .findProjetdetailbytechnologieanddescription(techno)
+        .subscribe((d) => {
+          this.projetdetails = d;
+          console.log(d);
+        });
+    }
   }
 }

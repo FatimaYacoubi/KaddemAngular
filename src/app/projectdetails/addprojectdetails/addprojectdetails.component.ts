@@ -10,7 +10,7 @@ import { projetdetail } from 'src/projetdetail';
 })
 export class AddprojectdetailsComponent implements OnInit {
   projetdetails: any;
-  projetdetaila!: projetdetail;
+  projetdetaila = new projetdetail();
   message: any;
   part1: boolean = false;
 
@@ -18,16 +18,13 @@ export class AddprojectdetailsComponent implements OnInit {
   close() {
     this.part1 = false;
   }
-  ngOnInit(): void {
-    let resp = this.service.getData();
-    resp.subscribe((data) => (this.projetdetails = data));
-    console.log(this.projetdetaila);
-  }
+  ngOnInit(): void {}
 
   public addprojetdetail() {
-    let resp = this.service
+    console.log(this.projetdetaila);
+    this.service
       .addprojetdetail(this.projetdetaila)
-      .subscribe((data) => (this.message = 'projetdetail added'));
+      .subscribe(() => (this.message = 'projetdetail added'));
 
     this.part1 = true;
   }

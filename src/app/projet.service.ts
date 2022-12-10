@@ -13,6 +13,7 @@ export class ProjetService {
     console.log('hello');
     console.log(Projet);
     console.log(idP);
+
     let HTTPOptions: Object = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -32,7 +33,7 @@ export class ProjetService {
     );
   }
 
-  public removeprojet(idProjet: any) {
+  public removeprojet(idProjet: any): Observable<projet> {
     return this.http.delete(
       'http://localhost:8088/SpringMVC/ProjetC/deleteProjet/' + idProjet
     );
@@ -44,7 +45,7 @@ export class ProjetService {
     );
   }
 
-  public findprojetbyid(idProjet: any) {
+  public findprojetbyid(idProjet: any): Observable<projet> {
     return this.http
       .get('http://localhost:8088/SpringMVC/ProjetC/getallProjets' + idProjet)
       .pipe(shareReplay(1));
