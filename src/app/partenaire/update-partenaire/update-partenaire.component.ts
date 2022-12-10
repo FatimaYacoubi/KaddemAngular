@@ -18,7 +18,7 @@ export class UpdatePartenaireComponent implements OnInit {
   id:any;
   data:any
   
-
+formgroup: any;
   constructor(private partenaireservice:PartenaireService ,private universiteservice:UniversiteService, private acr:ActivatedRoute , private route:Router, private formbuilder :FormBuilder) { }
 
   ngOnInit(): void {
@@ -36,38 +36,7 @@ export class UpdatePartenaireComponent implements OnInit {
       })})
   }
 
-  formgroup= new FormGroup({
-    nomPartenaire: new FormControl('',[Validators.required ,Validators.minLength(3),Validators.pattern('^[A-Z].*')]),
-    localisation: new FormControl('',[Validators.required,Validators.minLength(4)]),
-    numTelUniv:new FormControl('',Validators.required),
-    email:new FormControl('',[Validators.required,Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$')]),
-    numTelPar:new FormControl('',Validators.required),
-    mobilite:new FormControl('',Validators.required),
-    universite:new FormControl('',Validators.required),
-    support:new FormControl('',Validators.required)
-  });
-
-  get nomPartenaire(){
-    return this.formgroup.get('nomPartenaire') as FormControl;
-  }
-  get localisation(){
-    return this.formgroup.get('localisation')as FormControl;
-  }
-  get email(){
-    return this.formgroup.get('email')as FormControl;
-  }
-  get numTelPar(){
-    return this.formgroup.get('numTelPar')as FormControl;
-  }
-  get mobilite(){
-    return this.formgroup.get('mobilite')as FormControl;
-  }
-  get support(){
-    return this.formgroup.get('support')as FormControl;
-  }
-  get universite(){
-    return this.formgroup.get('universite')as FormControl;
-  }
+  
 
 
 

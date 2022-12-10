@@ -54,7 +54,6 @@ ReactiveFormsModule,
     ProjetModule,
     BackModule,
     DetailEquipeModule,
-    PartenaireModule
   ],
   providers: [AddcontratService],
   bootstrap: [AppComponent]
