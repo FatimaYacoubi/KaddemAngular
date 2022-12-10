@@ -14,7 +14,6 @@ export class EntrepriseService {
     pageSize: number): Observable<Message> {
 // Initialize Params Object
 let params = new HttpParams();
-
 // Begin assigning parameters
 params = params.append('page', pageNumber.toString());
 params = params.append('size', pageSize.toString());

@@ -11,7 +11,7 @@ import { Specialite } from '../Specialite';
 })
 export class AddcontratComponent implements OnInit {
   etudiant :Etudiant = new Etudiant("","");
-
+etudiants: any;
 contrat: Contrat= new Contrat(new Date(),new Date(),Specialite.CLOUD,false,"",this.etudiant,200);
 message:any;
 part1: boolean = false;
@@ -28,4 +28,5 @@ resp.subscribe((data)=>this.message="Contrat Ajouté!");
 this.part1=true;
 
 }
+
 }

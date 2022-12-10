@@ -195,7 +195,7 @@
         </thead>
         <tbody>
 
-            <tr *ngFor="let entreprise of entreprises | paginate : { itemsPerPage:4, currentPage:p}">
+            <tr *ngFor="let entreprise of entreprises ">
                 <td>{{entreprise.idEntreprise}}</td>
                 <td>{{entreprise.nomEntreprise}}</td>
                 <td>{{entreprise.locEntreprise}}</td>
@@ -210,10 +210,20 @@
         </tbody>
         </table>
     
-        <pagination-controls style="color :aliceblue"(pageChange)="p= $event"></pagination-controls>
-         <!-- The form -->
-      <div> <input type="checkbox" id="click">
-        <div style="z-index: 4; position: absolute;"class="content">
+        <div class="main-panel">
+          <ul class="pagination justify-content-center">
+            <li class="page-item"><a (click)="previousClick()" class="page-link">Previous</a></li>
+            <li *ngFor='let index of pageIndexes' class="page-item" [ngClass]="active(index)">
+                    <a (click)="getPaginationWithIndex(index)" class="page-link">
+                      {{index + 1}}
+                    </a>
+            </li>
+        
+         <li class="page-item"><a (click)="nextClick()" class="page-link">Next</a></li>       
+           <!-- The form -->
+        </ul> 
+         <div> <input type="checkbox" id="click">
+        <div [ngStyle]="{'z-index': 4,'position': 'absolute','margin-top': '-200px','margin-left': '-140px'}" class="content">
           <div class="text">
             Edit
          </div>
