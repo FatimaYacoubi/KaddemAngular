@@ -2,9 +2,9 @@ import { Partenaire } from "./Partenaire";
 
 export class Offre{
     idOffre !: number;
-    nomPartenaire !:string;
+    nomOffre !:string;
     descriptionOffre !:string;
-    TypeOffre !:string;
-    partenaire ! :Partenaire;
+    typeOffre !:string;
+    listpartenaire ? :Partenaire;
 
 }

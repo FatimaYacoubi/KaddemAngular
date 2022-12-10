@@ -7,7 +7,6 @@ import { HomeModule } from './home/home.module';
 import { UserModule } from './user/user.module';
 import { ContratModule } from './contrat/contrat.module';
 import { DepartementModule } from './departement/departement.module';
-import { UniversiteModule } from './universite/universite.module';
 import { AddcontratService } from './contrat/addcontrat.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxChartsModule }from '@swimlane/ngx-charts';
@@ -24,6 +23,8 @@ import { EquipeModule } from './Equipe/equipe.module';
 import { DetailEquipeModule } from './detail-equipe/detail-equipe.module';
 import { ProjetModule } from './projet/projet-.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UniversiteModule } from './universite/universite.module';
+import { PartenaireModule } from './partenaire/partenaire.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +53,8 @@ ReactiveFormsModule,
     NgxPaginationModule,
     ProjetModule,
     BackModule,
-    DetailEquipeModule
+    DetailEquipeModule,
+    PartenaireModule
   ],
   providers: [AddcontratService],
   bootstrap: [AppComponent]

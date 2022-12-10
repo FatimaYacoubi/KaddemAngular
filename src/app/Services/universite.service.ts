@@ -8,7 +8,7 @@ import { Universite } from '../Models/Universite';
 })
 export class UniversiteService {
 
-  UnivURL="http://localhost:8088/SpringMVC/UniversiteC/";
+  UnivURL="http://localhost:5001/api/authentication/UniversiteC/";
   constructor(private http:HttpClient) { }
 
   GetAllUniversite(): Observable<Universite[]>{

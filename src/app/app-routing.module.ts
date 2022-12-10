@@ -15,7 +15,11 @@ const routes: Routes = [{path:"",redirectTo:"/",pathMatch:"full"},
 
 { path: 'equipeDetail', loadChildren: () => import('./detail-equipe/detail-equipe.module').then(m => m.DetailEquipeModule) },
 { path: 'projet', loadChildren: () => import('./projet/projet-.module').then(m => m.ProjetModule) },
-{ path: 'projetdetail', loadChildren: () => import('./projectdetails/projectdetails.module').then(m => m.ProjectdetailsModule) },
+{ path: 'projetdetail', loadChildren: () => import('./projectdetails/projectdetails.module').then(m => m.ProjectdetailsModule) }
+,{path:"offre",loadChildren:()=>import("./offre/offre.module").then(m=>m.OffreModule),},
+{path:"universite",loadChildren:()=>import("./universite/universite.module").then(m=>m.UniversiteModule),}
+,{path:"partenaire",loadChildren:()=>import("./partenaire/partenaire.module").then(m=>m.PartenaireModule),}
+
 
 ];
 

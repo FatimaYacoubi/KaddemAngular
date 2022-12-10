@@ -8,7 +8,7 @@ import { Partenaire } from '../Models/Partenaire';
 })
 export class PartenaireService {
 
-  UnivURL="http://localhost:8088/SpringMVC/PartenaireC/";
+  UnivURL="http://localhost:5001/api/authentication/PartenaireC";
 
   constructor(private http:HttpClient) { }
 
@@ -24,12 +24,20 @@ export class PartenaireService {
   AddPartenaire(partenaire: Partenaire){
     return this.http.post<Partenaire>(this.UnivURL+'addPartenaire',partenaire);
   }
-  UpdatePartenaire(partenaire:Partenaire){
-    return this.http.put<Partenaire>(this.UnivURL+'updatePartenaire',partenaire);
+  UpdatePartenaire(partenaire:Partenaire , id:any){
+    return this.http.put<Partenaire>(this.UnivURL+'updatePartenaire/'+id,partenaire);
+  
+  }
+  Affect(partenaire:Partenaire , id:any){
+    return this.http.post<Partenaire>(this.UnivURL+'affectationPartenaireUniversite/'+id,partenaire);
   
   }
   stats(): Observable<any> {
     return this.http.get(this.UnivURL+'retrieve-all-partenaire-stats');
   }
+  search(Keyword:any):  Observable<any> {
+    return this.http.get(this.UnivURL+'search/'+Keyword);
+  }
+
 
 }
