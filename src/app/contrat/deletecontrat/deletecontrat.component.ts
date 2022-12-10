@@ -4,6 +4,10 @@ import { AddcontratComponent } from '../addcontrat/addcontrat.component';
 import { Contrat } from '../contrat';
 import { Etudiant } from '../etudiant';
 import { Specialite } from '../Specialite';
+import { Message } from '../message';
+const pageSize:number = 5;
+const page:number = 5;
+
 
 @Component({
   selector: 'app-deletecontrat',
@@ -11,14 +15,18 @@ import { Specialite } from '../Specialite';
   styleUrls: ['./deletecontrat.component.css']
 })
 export class DeletecontratComponent implements OnInit {
-  contrats:any
+  contratsss:any
  etudiantC:any
  message:any
  contrat:any
  SingleDataSet:any
+ page : any;
  single :any;
  p: number=1;
-
+ currentSelectedPage:number = 0;
+  totalPages: number = 0;
+  contrats: any;
+  pageIndexes: Array<number> = [];
  etudiant :Etudiant = new Etudiant("","");
  contratToUpdate: Contrat= new Contrat(new Date(),new Date(),Specialite.CLOUD,false,"",this.etudiant,200);
  specialite: string="";
@@ -29,19 +37,35 @@ export class DeletecontratComponent implements OnInit {
 
   { console.log(idContrat);
     let resp=this.service.deleteContrat(idContrat);
-    resp.subscribe((data)=>this.contrats=data);
+    resp.subscribe((data)=>this.contratsss=data);
+  }
+  getPage(page: number){
+
+    this.service.getPagableCustomers(page, pageSize)
+            .subscribe(
+                (message: Message) => {
+                  console.log(message);
+                  this.contrats = message.contrats;
+                  this.totalPages = message.totalPages;
+                  this.pageIndexes = Array(this.totalPages).fill(0).map((x,i)=>i);
+                  this.currentSelectedPage = message.pageNumber;
+                },
+                (error) => {
+                  console.log(error);
+                }
+            );
   }
   ngOnInit() {
-    let resp=this.service.getContrats();
-    resp.subscribe((data)=>this.contrats=data);
+    this.getPage(1);
 
-  }
+this.Contrats(); }
+
 edit(contrat:any){
   this.contratToUpdate = contrat;
 }
 updateContrat()
 {let resp=this.service.UpdateContrat(this.contratToUpdate);
-  resp.subscribe((data)=>this.contrats=data);
+  resp.subscribe((data)=>this.contratsss=data);
 
 }
 exportProductsPdf()
@@ -89,21 +113,39 @@ setTimeout(function() {
 
 }); }
 
- saleData =([
-  { name: "CLOUD", value: 105000 },
-  { name: "SECURITE", value: 55000 },
-  { name: "IA", value: 15000 },
-  { name: "TWIN", value: 150000 },
-  { name: "RESEAUX", value: 20000 },
-  { name: "GL", value: 20000 },
-  { name: "DS", value: 20000 }
 
+getPaginationWithIndex(index: number) {
+  this.getPage;
+}
+active(index: number) {
+  if(this.currentSelectedPage == index ){
+    return {
+      active: true
+    };
+  } return {
+    active: false
+  };
+}
 
-]);
+nextClick(){
+  if(this.currentSelectedPage < this.totalPages-1){
+    this.getPage(++this.currentSelectedPage);
+  }  
+}
 
+previousClick(){
+  if(this.currentSelectedPage > 0){
+    this.getPage(--this.currentSelectedPage);
+  }  
+}
 public findContratBySpecialite()
 {
   let resp= this.service.getContratBySpecialite(this.specialite);
   resp.subscribe((data)=>this.contrats=data)
+}
+Contrats()
+{let resp=this.service.getContrats();
+  resp.subscribe((data)=>this.contratsss=data);
+
 }
 }

@@ -35,9 +35,8 @@ export class DeleteentrepriseComponent implements OnInit {
   }
   ngOnInit() {
     let resp=this.service.getEntreprises();
-    resp.subscribe((data)=>this.entreprises=data);
-   
-      return Object.keys(this.entreprise.data);
+    resp.subscribe((data)=>this.entreprises=data);   console.log(resp.subscribe());
+
   }
   public AddEntreprise(){
     let resp=this.service.addEntreprise(this.entreprise);
