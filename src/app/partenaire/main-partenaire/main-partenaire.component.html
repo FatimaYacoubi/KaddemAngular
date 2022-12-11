@@ -71,7 +71,7 @@
                         <th> Action</th>
                       </thead>
                       <tbody>
-                        <tr *ngFor="let p of partenaire "  >
+                        <tr *ngFor="let p of partenairess "  >
                        
                           <th scope="row">{{p.idPartenaire}}</th>
                           <th>{{p.nomPartenaire}}</th>
@@ -92,6 +92,17 @@
                     
                       </tbody>
                     </table>
+                    <ul class="pagination justify-content-center">
+                      <li class="page-item"><a (click)="previousClick()" class="page-link">Previous</a></li>
+                      <li *ngFor='let index of pageIndexes' class="page-item" [ngClass]="active(index)">
+                              <a (click)="getPaginationWithIndex(index)" class="page-link">
+                                {{index + 1}}
+                              </a>
+                      </li>
+                  
+                   <li class="page-item"><a (click)="nextClick()" class="page-link">Next</a></li>       
+                        <!-- The form -->
+                  </ul>  
                   </div>
                 </div>
               </div>

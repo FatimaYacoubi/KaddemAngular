@@ -52,6 +52,7 @@
                       <div class="col-md-3">
                         <div class="form-group">
                           <div *ngIf="nomOffre.invalid && nomOffre.touched" class="alert alert-danger" role="alert"  >
+                            <div *ngIf="nomOffre.errors?.['required']" style="color: red;"> required  </div>
                             <div *ngIf="nomOffre.errors?.['minlength']"> minlength  </div> 
                           </div>
                           <label class="bmd-label-floating">Nom Offre</label>
@@ -63,6 +64,7 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <div *ngIf="descriptionOffre.invalid && descriptionOffre.touched" class="alert alert-danger" role="alert"  >
+                            <div *ngIf="descriptionOffre.errors?.['required']" style="color: red;"> required  </div>
                             <div *ngIf="descriptionOffre.errors?.['minlength']"> minlength  </div> </div>
                           <label class="bmd-label-floating"> Description </label>
                           <input type="text" class="form-control" [(ngModel)]="offre.descriptionOffre"  #descriptionOffre="ngModel" name="descriptionOffre"  id="descriptionOffre" >
@@ -72,7 +74,8 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <div *ngIf="typeOffre.invalid && typeOffre.touched" class="alert alert-danger" role="alert"  >
-                         
+                            <div *ngIf="typeOffre.errors?.['required']" style="color: red;"> required  </div>
+
                             <div *ngIf="typeOffre.errors?.['minlength']"> minlength  </div> </div>
                           <label class="bmd-label-floating"> Type Offre </label>
                           <input type="text" class="form-control" [(ngModel)]="offre.typeOffre"  #typeOffre="ngModel" name="typeOffre"  id="typeOffre" >

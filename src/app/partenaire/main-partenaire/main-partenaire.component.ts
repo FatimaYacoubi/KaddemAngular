@@ -6,6 +6,7 @@ import { UniversiteService } from 'src/app/Services/universite.service';
 import Swal from 'sweetalert2';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { PagePa } from 'src/app/Models/PagePa';
 
 
 @Component({
@@ -20,47 +21,47 @@ export class MainPartenaireComponent implements OnInit {
   dat:any
   searchvalue !:string
   listsearch : Partenaire[]=[];
-  /*listmanipulation !: Partenaire[];
-  isfound !: Partenaire;
-  parten !:Partenaire
-  find: number=0 */
+
   unversite! : Universite[]
 
   refresh$ = new BehaviorSubject(null);
   list?: Observable<Partenaire[]>
+  partenaires:any;
+  partenairess:any;
+  pag:any
+  page : any;
+   pageSize:number = 2;
+    currentSelectedPage:number = 0;
+    totalPages: number = 0;
+    pageIndexes: Array<number> = []
 
   constructor(private paretenaireService:PartenaireService, private universites:UniversiteService) { }
 
   ngOnInit(): void {
 
-
-this.getAllPartenaire()
+    this.getPage(0);
+  
     
-    
-
-     this.list = this.refresh$.pipe(switchMap(() => this.paretenaireService.search(this.searchvalue)))
-/*     this.listmanipulation=this.partenaire;
-    this.listsearch=this.partenaire; */
-
-  }
-
-  getAllPartenaire(){
-
-
     this.paretenaireService.GetAllPartenaire().subscribe(
-      (u)=>{
-        this.partenaire=u;
-        console.log(this.partenaire)
+      (o)=>{
+        this.partenaires=o;
+    
       }
       
       );
+
+     this.list = this.refresh$.pipe(switchMap(() => this.paretenaireService.search(this.searchvalue)))
+
+
   }
+
+
 
 
   afterDeleteUniversite( e:Partenaire ){
     console.log(e);
-    let j=this.partenaire.indexOf(e);
-    this.partenaire.splice(j,1);
+    let j=this.partenaires.indexOf(e);
+    this.partenaires.splice(j,1);
     Swal.fire(
       'Universite   '+e.nomPartenaire +  
       '   Deleted!',
@@ -77,42 +78,66 @@ this.getAllPartenaire()
     this.paretenaireService.search(this.searchvalue).subscribe(
       (data) => {
         
-          this.partenaire= data;
+          this.partenairess= data;
         
       
 
         
 
       },
-      () => this.getAllPartenaire()
+      () => this.paretenaireService.GetAllPartenaire()
     );
   }
     this.refresh$.next(null);
     }
   
 
-  /* search_Partenaire($event: string) {
-    this.listmanipulation = this.partenaire;
-    this.listsearch=[];
-    for (let entry of Array.from(this.listmanipulation.entries())) {
-      if (entry[1].nomPartenaire.indexOf($event) != -1 ) {
-        this.isfound = entry[1];
-        this.find=1;
-        
-      }
-      else
-        this.find=0;
-      if(this.find)
-        this.listsearch.push(this.isfound);
-      this.find=0;
-    }
-    this.listmanipulation=this.listsearch;
-    if (!$event)
-      this.listmanipulation = this.partenaire;
 
-     
+  getPage(page: number){
+
+    this.paretenaireService.getPagableCustomers(page, this.pageSize)
+            .subscribe(
+                (pag: PagePa) => {
+                  console.log(pag);
+                  this.partenairess = pag.partenaires;
+                  this.totalPages = pag.totalPages;
+                  this.pageIndexes = Array(this.totalPages).fill(0).map((x,i)=>i);
+                  this.currentSelectedPage = pag.pageNumber;
+                },
+                (error) => {
+                  console.log(error);
+                }
+            );
   }
+  nextClick(){
+    if(this.currentSelectedPage < this.totalPages-1){
+      this.getPage(++this.currentSelectedPage);
+    }  
+  }
+  
+  previousClick(){
+    if(this.currentSelectedPage > 0){
+      this.getPage(--this.currentSelectedPage);
+    }  
+  }
+  getPaginationWithIndex(index: number) {
+    this.getPage;
+   }
+   active(index: number) {
+    if(this.currentSelectedPage == index ){
+      return {
+        active: true
+      };
+    } return {
+      active: false
+    };
+   }
 
- */
+
+   Profs()
+{let resp=this.paretenaireService.GetAllPartenaire();
+  resp.subscribe((data)=>this.partenaires=data);
+
+}
 
 }
