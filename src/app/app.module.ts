@@ -19,14 +19,14 @@ import { DeleteentrepriseComponent } from './entreprise/deleteentreprise/deletee
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AgmCoreModule } from '@agm/core';
 import { BackModule } from './back/back.module';
-import { EquipeModule } from './Equipe/equipe.module';
-import { DetailEquipeModule } from './detail-equipe/detail-equipe.module';
 import { ProjetModule } from './projet/projet-.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UniversiteModule } from './universite/universite.module';
 import { PartenaireModule } from './partenaire/partenaire.module';
 import { Departement } from './Models/Departement';
 import { ProfesseurModule } from './professeur/professeur.module';
+import { DetailEquipe } from './Models/DetailEquipe';
+import { Equipe } from './Models/Equipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,8 +55,8 @@ ReactiveFormsModule,
     NgxPaginationModule,
     ProjetModule,
     BackModule,
-    DetailEquipeModule,
-    ProfesseurModule
+    ProfesseurModule,
+   
   ],
   providers: [AddcontratService],
   bootstrap: [AppComponent]

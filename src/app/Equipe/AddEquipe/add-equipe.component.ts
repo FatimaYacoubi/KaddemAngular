@@ -4,7 +4,6 @@ import { Equipe } from 'src/app/Models/Equipe';
 import { Niveau } from 'src/app/Models/Niveau';
 import { EquipeService } from 'src/app/Services/equipe.service';
 
-
 @Component({
   selector: 'app-add-equipe',
   templateUrl: './add-equipe.component.html',

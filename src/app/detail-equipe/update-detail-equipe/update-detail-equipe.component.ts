@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DetailEquipe } from 'src/app/Models/DetailEquipe';
 import { DetailEquipeService } from 'src/app/Services/detail-equipe.service';
-import { FormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-update-detail-equipe',
   templateUrl: './update-detail-equipe.component.html',
