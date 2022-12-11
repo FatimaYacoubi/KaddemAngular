@@ -1,6 +1,6 @@
 import { compileNgModule } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
@@ -21,9 +21,12 @@ export class ListprojectdetailsComponent implements OnInit {
   hidelist: Boolean = false;
   hidelistdate: Boolean = true;
   search: String = '';
+  
 
   refresh$ = new BehaviorSubject(null);
   list?: Observable<projetdetail[]>;
+
+  listnonobser?: projetdetail[];
 
   projetdetailToUpdate!: projetdetail;
 
@@ -35,11 +38,12 @@ export class ListprojectdetailsComponent implements OnInit {
 
   formgroup = this.fb.group({
     idProjetDetail: 0,
-    description: [''],
-    technologie: [''],
+    description: ['',Validators.minLength(2)],
+    technologie: ['',Validators.minLength(2)],
     cout_provisoire: 0,
-    dateDebut: new Date(),
-    dateLimite: new Date(),
+    dateDebut:  new Date(),
+    dateLimite:  new Date(), 
+   
   });
 
   get idProjetDetail() {
@@ -76,6 +80,11 @@ export class ListprojectdetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.list = this.refresh$.pipe(switchMap((_) => this.service.getData()));
+
+    this.service.getData().subscribe((d)=>{this.listnonobser=d
+      console.log(this.listnonobser);
+    })
+ 
   }
 
   public deleteProjetdetail(idProjetdetail: any) {

@@ -297,15 +297,30 @@
                           <div class="row">
                             <div class="form-group">
                               <input
-                                required
+                              required
+                              minlength="5"
                                 class="form-control"
                                 id="sujet"
                                 #sujet="ngModel"
                                 type="text"
                                 [(ngModel)]="projetToUpdate.sujet"
                                 name="sujet"
+                                [ngClass]="{ 'is-invalid': ff.submitted && sujet.errors }"
                                 placeholder="sujet du projet"
                               />
+                              <div *ngIf="ff.submitted && sujet.errors"
+                              class="invalid-feedback">
+                              
+
+                              <div *ngIf="sujet.errors['required']">
+                                sujet is required
+                            </div>
+                            <div *ngIf="sujet.errors['minlength']">
+                              sujet must be at least 10 characters
+                              </div>
+
+
+                          </div>
                             </div>
                             <div class="form-group">
                               <input
@@ -316,8 +331,13 @@
                                 type="text"
                                 [(ngModel)]="projetToUpdate.etat"
                                 name="etat"
+                                [ngClass]="{ 'is-invalid': ff.submitted && etat.errors }"
                                 placeholder="etat du projet"
                               />
+                              <div *ngIf="ff.submitted && etat.errors"
+                              class="invalid-feedback">
+                              <div *ngIf="etat.errors['required']">etat is required</div>
+                              </div>
                             </div>
                             <div class="form-group">
                               <ng-container>
@@ -333,6 +353,11 @@
                                   name="projetDetail"
                                   placeholder="projetDetail du projet"
                                 />
+                                <div *ngIf="ff.submitted && projetDetail.errors"
+                                class="invalid-feedback">
+                                <div *ngIf="projetDetail.errors['required']">EndDate is
+                                    required</div>
+                            </div>
                               </ng-container>
                             </div>
 
@@ -405,9 +430,7 @@
     </div>
     <div class="fixed-plugin">
       <div class="dropdown show-dropdown">
-        <a href="#" data-toggle="dropdown">
-          <i class="fa fa-cog fa-2x"> </i>
-        </a>
+        
         <ul class="dropdown-menu">
           <li class="header-title">Sidebar Filters</li>
           <li class="adjustments-line">
