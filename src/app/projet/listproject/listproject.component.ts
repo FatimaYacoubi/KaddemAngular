@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BehaviorSubject, Observable, switchMap } from 'rxjs';
 import { ProjetService } from 'src/app/projet.service';
 import { projet } from 'src/projet';
 
@@ -12,22 +13,23 @@ export class ListprojectComponent implements OnInit {
   projets!: projet[];
   message: any;
   projet: any;
-  projetToUpdate= new projet();
+  projetToUpdate = new projet();
+  refresh$ = new BehaviorSubject(null);
+  list?: Observable<projet[]>;
 
   constructor(private service: ProjetService, private router: Router) {}
 
   ngOnInit(): void {
-    this.service.listprojet().subscribe((data) => {
-      this.projets = data;
-
-      console.log(this.projets);
-    });
+    this.list = this.refresh$.pipe(switchMap((_) => this.service.listprojet()));
   }
 
   public deleteprojet(idprojet: any) {
     console.log(idprojet);
     let resp = this.service.removeprojet(idprojet);
-    resp.subscribe((data) => (this.projet = data));
+    resp.subscribe((data) => {
+      this.projet = data;
+      this.refresh$.next(null);
+    });
   }
 
   getprojet(projet: any) {
@@ -36,9 +38,10 @@ export class ListprojectComponent implements OnInit {
   }
   updateprojet() {
     console.log(this.projetToUpdate.idProjet);
-    this.service
-      .updateprojet(this.projetToUpdate)
-      .subscribe((data) => console.log(data));
+    this.service.updateprojet(this.projetToUpdate).subscribe((data) => {
+      console.log(data);
+      this.refresh$.next(null);
+      });
   }
 
   goToVotes($myParam: string = ''): void {
