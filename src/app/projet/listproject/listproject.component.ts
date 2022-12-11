@@ -14,6 +14,7 @@ export class ListprojectComponent implements OnInit {
   message: any;
   projet: any;
   projetToUpdate = new projet();
+  projetdetailid: any;
   refresh$ = new BehaviorSubject(null);
   list?: Observable<projet[]>;
 
@@ -34,13 +35,14 @@ export class ListprojectComponent implements OnInit {
 
   getprojet(projet: any) {
     this.projetToUpdate = projet;
-    console.log(this.projetToUpdate);
   }
-  updateprojet() {
+  updateprojet(projetdetailid: any) {
     console.log(this.projetToUpdate.idProjet);
-    this.service.updateprojet(this.projetToUpdate).subscribe((data) => {
-      console.log(data);
-      this.refresh$.next(null);
+    this.service
+      .updateprojet(this.projetToUpdate, projetdetailid)
+      .subscribe((data) => {
+        console.log(projetdetailid);
+        this.refresh$.next(null);
       });
   }
 

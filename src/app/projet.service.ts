@@ -26,9 +26,9 @@ export class ProjetService {
     );
   }
 
-  public updateprojet(projet: projet): Observable<projet> {
+  public updateprojet(projet: projet, idProjetdetail: any): Observable<projet> {
     return this.http.put<projet>(
-      'http://localhost:8088/SpringMVC/ProjetC/updateProjet',
+      'http://localhost:8088/SpringMVC/ProjetC/updateProjet/' + idProjetdetail,
       projet
     );
   }
