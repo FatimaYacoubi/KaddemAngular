@@ -55,7 +55,7 @@
                   <h4 class="card-title "> Table Partenaire</h4>
                   <p class="card-category">Les Partenaire</p>
                 </div>
-                <br><a class="collapse-item" [routerLink]="['/addpartenaire']" class="btn btn-primary pull-right" style="align-items:center ;" >AJOUTER</a>
+                <br><a class="collapse-item" [routerLink]="['../addpartenaire']" class="btn btn-primary pull-right" style="align-items:center ;" >AJOUTER</a>
                 <div class="card-body">
                   <div class="table-responsive">
                     <table class="table">
@@ -84,7 +84,7 @@
                          <th>{{p.universites?.nomUniv}}</th>
                         </ng-container>
                          <th>
-                          <button  class="btn btn-primary pull-right" [routerLink]="['/updatepartenaire/',p.idPartenaire]" >modify </button>
+                          <button  class="btn btn-primary pull-right" [routerLink]="['../updatepartenaire/',p.idPartenaire]" >modify </button>
                           
                           <app-delete-partenaire [partenaire]="p" (notif)="afterDeleteUniversite($event)"></app-delete-partenaire> 
                         </th>

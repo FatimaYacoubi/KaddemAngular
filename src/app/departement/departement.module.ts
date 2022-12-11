@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { DepartementRoutingModule } from './departement-routing.module';
 import { AdddepartementComponent } from './adddepartement/adddepartement.component';
+import { BackModule } from '../back/back.module';
 ;
 
 
@@ -12,6 +13,7 @@ import { AdddepartementComponent } from './adddepartement/adddepartement.compone
   imports: [
     CommonModule,
     DepartementRoutingModule,
+    BackModule
   ],
   providers: [
     

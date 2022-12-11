@@ -14,43 +14,38 @@ import { UniversiteService } from 'src/app/Services/universite.service';
 export class UpdatePartenaireComponent implements OnInit {
 
   partenaire = new Partenaire
-  unversite! : Universite[]
-  id:any;
-  data:any
-  
-formgroup: any;
-  constructor(private partenaireservice:PartenaireService ,private universiteservice:UniversiteService, private acr:ActivatedRoute , private route:Router, private formbuilder :FormBuilder) { }
+ id:any;
+ data:any
+ unversite!: Universite[]
+  constructor(private partenaireservice:PartenaireService , private acr:ActivatedRoute , private route:Router) { }
 
   ngOnInit(): void {
-
-
-      this.partenaireservice.GetPartenaireById(this.acr.snapshot.params['id']).subscribe((result:any)=>
-      {this.formgroup= new FormGroup({
-        nomPartenaire: new FormControl(result['nomPartenaire']),
-        localisation:new FormControl(result['localisation']),
-        email:new FormControl(result['email']),
-        numTelPar:new FormControl(result['numTelPar']),
-        mobilite:new FormControl(result['mobilite']),
-        universite:new FormControl(result['universite']),
-        support:new FormControl(result['support'])
-      })})
+    this.id=this.acr.snapshot.params['id'];
+  this.getpardata();
   }
 
-  
+  getpardata(){
 
+    return this.partenaireservice.GetPartenaireById(this.id).subscribe(res=>{
+      this.data=res;
+      this.partenaire=this.data;
+    }
+      
+      )
+  }
+  updateuniversity(){
 
+    this.partenaireservice.UpdatePartenaire(this.partenaire).subscribe(res=>{
 
-  
-  updatePartenaire(par : Partenaire , idpar:any){
-    this.partenaireservice.UpdatePartenaire(par,this.acr.snapshot.params['id']).subscribe();
-    window.alert('Your Partenaire has been modified !');
+      this.getpardata()
+    })
+    
     this.route.navigate(['partenaire/mainpartenaire'])
-
-  }
-
-  GetPartenaireByID(idPar: any){
-
-    this.partenaireservice.GetPartenaireById(idPar).subscribe();
   
-  }
+  
+    }
+    backToTheList(){
+      this.route.navigate(['partenaire/mainpartenaire'])
+    }
+    
 }

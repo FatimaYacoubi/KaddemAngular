@@ -8,7 +8,7 @@ import { Partenaire } from '../Models/Partenaire';
 })
 export class PartenaireService {
 
-  UnivURL="http://localhost:5001/api/authentication/PartenaireC";
+  UnivURL="http://localhost:5001/api/authentication/PartenaireC/";
 
   constructor(private http:HttpClient) { }
 
@@ -24,8 +24,8 @@ export class PartenaireService {
   AddPartenaire(partenaire: Partenaire){
     return this.http.post<Partenaire>(this.UnivURL+'addPartenaire',partenaire);
   }
-  UpdatePartenaire(partenaire:Partenaire , id:any){
-    return this.http.put<Partenaire>(this.UnivURL+'updatePartenaire/'+id,partenaire);
+  UpdatePartenaire(partenaire:Partenaire){
+    return this.http.put<Partenaire>(this.UnivURL+'updatePartenaire',partenaire);
   
   }
   Affect(partenaire:Partenaire , id:any){

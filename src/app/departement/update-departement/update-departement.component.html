@@ -1,13 +1,3 @@
-<!--
-=========================================================
-* Material Dashboard Dark Edition - v2.1.0
-=========================================================
-* Product Page: https://www.creative-tim.com/product/material-dashboard-dark
-* Copyright 2019 Creative Tim (http://www.creative-tim.com)
-* Coded by www.creative-tim.com
-=========================================================
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,124 +20,48 @@
 
 <body class="dark-edition">
   <div class="wrapper ">
-<!-- <app-nav></app-nav> -->
+   <app-nav></app-nav> 
     <div class="main-panel">
       <!-- Navbar -->
-<!-- <app-header></app-header> -->
-      <!-- End Navbar -->
+         <app-header></app-header> 
+        <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-8">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title">upadte Partenaire</h4>
-                  <p class="card-category">Partenaire</p>
+                  <h4 class="card-title">Add Departement</h4>
+                  <p class="card-category">Departement</p>
                 </div>
                 <div class="card-body">
-                  <form _lpchecked="1" #f="ngForm" (ngSubmit)="updateuniversity()">
+                  <form _lpchecked="1" #f="ngForm" (ngSubmit)="updatedeparte()">
                     <div  class="form-group" >
-                    
-                     <div class="row" >
-                      <div class="col-md-3">
-                        <div class="form-group">
-                          <div *ngIf="nomPartenaire.invalid && nomPartenaire.touched" class="alert alert-danger" role="alert"  >
-                            <div *ngIf="nomPartenaire.errors?.['required']" style="color: red;"> required  </div>
-                            <div *ngIf="nomPartenaire.errors?.['pattern']"> pattern  </div>
-                            <div *ngIf="nomPartenaire.errors?.['minlength']"> minlength  </div> 
-                          </div>
-                          <label class="bmd-label-floating">Nom Partenaire</label>
-                          <input type="text" class="form-control" [(ngModel)]="partenaire.nomPartenaire" required minlength="3" pattern="[a-zA-Z0-9]*"  #nomPartenaire="ngModel" name="nomPartenaire"  id="nomPartenaire" placeholder="nom de nomPartenaire">
-                        </div>
-                      </div>
-                   
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <div *ngIf="email.invalid && email.touched" class="alert alert-danger" role="alert"  >
-                            <div *ngIf="email.errors?.['required']" style="color: red;"> required  </div>
-                            <div *ngIf="email.errors?.['email']"> email  </div> </div>
-                          <label class="bmd-label-floating"> Address Email </label>
-                          <input type="email" class="form-control" [(ngModel)]="partenaire.email" required #email="ngModel" name="email"  id="email" placeholder="email">
-                        </div>
-                      </div>
-
-                      <div class="col-md-3">
-                        <div class="form-group">
-                          <div *ngIf="localisation.invalid && localisation.touched" class="alert alert-danger" role="alert"  >
-                            <div *ngIf="localisation.errors?.['required']" style="color: red;"> required  </div>
-                            <div *ngIf="localisation.errors?.['pattern']"> pattern  </div>
-                            <div *ngIf="localisation.errors?.['minlength']"> minlength  </div> 
-                          </div>
-                          <label class="bmd-label-floating">Localisation</label>
-                          <input type="text" class="form-control" [(ngModel)]="partenaire.localisation" required minlength="3" pattern="[a-zA-Z0-9]*"  #localisation="ngModel" name="localisation"  id="localisation" placeholder="nom de localisation">
-                        </div>
-                      </div>
-
-                      <div class="col-md-3">
-                        <div class="form-group">
-                          <div *ngIf="numTelPar.invalid && numTelPar.touched" class="alert alert-danger" role="alert"  >
-                            <div *ngIf="numTelPar.errors?.['required']" style="color: red;"> required  </div>
-                            <div *ngIf="numTelPar.errors?.['pattern']"> pattern  </div>
-                            <div *ngIf="numTelPar.errors?.['minlength']"> minlength  </div> 
-                          </div>
-                          <label class="bmd-label-floating">Telephone</label>
-                          <input type="text" class="form-control" [(ngModel)]="partenaire.numTelPar" required minlength="3" pattern="[a-zA-Z0-9]*"  #numTelPar="ngModel" name="numTelPar"  id="numTelPar" placeholder="nom de numTelPar">
-                        </div>
-                      </div>
-
-                      <div class="col-md-3">
-                        <div class="form-group">
-                          <div *ngIf="mobilite.invalid && mobilite.touched" class="alert alert-danger" role="alert"  >
-                            <div *ngIf="mobilite.errors?.['required']" style="color: red;"> required  </div>
- 
-                          </div>
-                          <label class="bmd-label-floating">Mobilite</label>
-                          <input required class="form-control"  type="text" [(ngModel)]="partenaire.mobilite" #mobilite="ngModel"  list=mobilite  name="mobilite"  >
-                          <datalist  id="mobilite"   >
-                            <option  value="">--Please choose an option--</option>
-                            <option value="true">Avec Mobilite</option>
-                            <option value="false">sana Mobilité</option>
-                        </datalist>
-                        </div>
-                      </div>
-
-                      <div class="col-md-3">
-                        <div class="form-group">
-                          <div *ngIf="support.invalid && support.touched" class="alert alert-danger" role="alert"  >
-                            <div *ngIf="support.errors?.['required']" style="color: red;"> required  </div>
- 
-                          </div>
-                          <label class="bmd-label-floating">Support</label>
-                          <input  class="form-control"  type="text" [(ngModel)]="partenaire.support" #support="ngModel" list=support  name="support"  >
-
-                          <datalist   id="support"   >
-                            <option  value="">--Please choose an option--</option>
-                            <option value="Matériel">Matériel</option>
-                            <option value="Financier">Financier</option>
-                            <option value="Juridique">Juridique</option>
-                        </datalist>
-                        </div>
-                      </div>
-
-                      <div class="col-md-3">
-                        <div class="form-group">
-                          <div *ngIf="universites.invalid && universites.touched" class="alert alert-danger" role="alert"  >
-                            <div *ngIf="universites.errors?.['required']" style="color: red;"> required  </div>
- 
-                          </div>
-                          <label class="bmd-label-floating">Universite</label>
-                          <input  class="form-control"  type="text" [(ngModel)]="partenaire.universites" #universites="ngModel"   list=universites  name="universites"  >
-                          <datalist   id="universite"  >
-                           <option value="">--Please choose an option--</option>
-                           <option *ngFor="let b of unversite" [value]="b.idUniversite" > {{b.nomUniv}} </option>
-                       </datalist>
-                        </div>
-                      </div>
-                   
-                    </div>
-                    <button type="submit" class="btn btn-primary pull-right" [disabled]="f.invalid" (click)=" updateuniversity()" >Modifier</button>
+                          
+                      <div class="row" >
+                       <div class="col-md-6">
+                         <div class="form-group">
+                           <div *ngIf="nomDepart.invalid && nomDepart.touched" 
+                                             class="alert alert-danger" role="alert"  >
+                             <div *ngIf="nomDepart.errors?.['required']" style="color: red;">required</div>
+                             <div *ngIf="nomDepart.errors?.['pattern']"> chaine de caracteres  </div>
+                             <div *ngIf="nomDepart.errors?.['minlength']"> more than 3  </div> 
+                       <div *ngIf="nomDepart.errors?.['maxlength']"> less than 10  </div> 
+                           </div>
+                           <label class="bmd-label-floating">Nom Departement</label>
+                           <input type="text" class="form-control" [(ngModel)]="Departe.nomDepart"
+                            required minlength="3" maxlength="18" pattern="[^\s][A-z0-9À-ž\s]+"  #nomDepart="ngModel"
+                             name="nomDepart"  id="nomDepart" placeholder="nom de departement">
+                         </div>
+                       </div>
+                     
+                       
+                     </div>
+                    <button type="submit" class="btn btn-primary pull-right" [disabled]="f.invalid" (click)=" updatedeparte()" >Modifier</button>
                     <div class="clearfix"></div>
                   </div>
+                  <button type="submit" class="btn btn-primary pull-right" (click)=" updatedeparte()" >Retour</button>
+
                
                   </form>
                 </div>
@@ -173,8 +87,39 @@
           </div>
         </div>
       </div>
-      <!-- <app-footer></app-footer> -->
-       <script>
+      <footer class="footer">
+        <div class="container-fluid">
+          <nav class="float-left">
+            <ul>
+              <li>
+                <a href="https://www.creative-tim.com">
+                  Creative Tim
+                </a>
+              </li>
+              <li>
+                <a href="https://creative-tim.com/presentation">
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a href="http://blog.creative-tim.com">
+                  Blog
+                </a>
+              </li>
+              <li>
+                <a href="https://www.creative-tim.com/license">
+                  Licenses
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="copyright float-right" id="date">
+            , made with <i class="material-icons">favorite</i> by
+            <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
+          </div>
+        </div>
+      </footer>
+      <script>
         const x = new Date().getFullYear();
         let date = document.getElementById('date');
         date.innerHTML = '&copy; ' + x + date.innerHTML;
@@ -248,6 +193,9 @@
       </ul>
     </div>
   </div>
+
+  
+  <app-footer></app-footer> 
   <!--   Core JS Files   -->
   <script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>
