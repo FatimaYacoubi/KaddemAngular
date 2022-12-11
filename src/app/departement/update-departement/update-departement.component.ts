@@ -25,21 +25,23 @@ export class UpdateDepartementComponent implements OnInit {
   ngOnInit(): void {
     this.idDepart=this.acr.snapshot.params['id'];
   this.getdepdata();
+
   }
 
-
-  
 
    updatedeparte(){
 
     this.serviceDepart.UpdateDepartement(this.Departe).subscribe(
       res=>{
        this.getdepdata()
+       window.location.reload();
+
     })
         this.route.navigate(['departement/mainDepartement'])
-    }
+
+      }
 
     backToTheList(){
-      this.route.navigate(['departement/mainDepartement'])
+      this.route.navigate(['./mainDepartement'])
     }
 }

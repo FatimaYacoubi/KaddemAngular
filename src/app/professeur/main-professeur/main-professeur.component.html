@@ -24,44 +24,63 @@
     <div class="main-panel">
       <!-- Navbar -->
          <app-header></app-header> 
-        <!-- End Navbar -->
     <div class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12">
             <div class="card">
               <div class="card-header card-header-primary">
-
                 <!-- Serch-->
                 <p>
                   <input type="text" [(ngModel)]="searchvalue"  (keyup)="onsearch()" class="form-control search-text-indent  searchbar-positioning" placeholder="Search">
                 </p>
 
-                
-                <h4 class="card-title "> Table Departement</h4>
-                <p class="card-category">Les Departementss</p>
+                <h4 class="card-title "> Table Professeur</h4>
+                <p class="card-category">Les Professeurs</p>
               </div>
-              <br><a class="collapse-item" [routerLink]="['../addDepartement']" class="btn btn-primary pull-right" style="align-items:center ;" >AJOUTER</a>
+              <br><a class="collapse-item" [routerLink]="['../addProfesseur']" class="btn btn-primary pull-right" style="align-items:center ;" >AJOUTER</a>
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table">
                     <thead class=" text-primary">
                       <th>#</th>
-                      <th>Nom Departement</th>
-                      <th> Les etages </th>
+                      <th>Nom </th>
+                      <th>Prenom </th>
+                      <th>Email</th>
+                      <th>Numero </th>
+                      <th>Module</th>
+                      <th>Annee d'embauche</th>
+                      <th>Heures</th>
+                      <th>Classes</th>
+                      <th>Departement </th>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let u of depa">
-                          <th scope="row">{{u.idDepart}}</th>
-                          <th>{{u.nomDepart}}</th>
-                          <th> {{u.nbEtage}}</th>
-                         <th>
-                          <button  class="btn btn-primary pull-right" [routerLink]="['../updateDepartement/',u.idDepart]" >modify </button>
-                          
-                          <app-delete-departement [departement]="u" (notif)="afterDeleteDepartement($event)"  ></app-delete-departement> 
-                       
+                       <tr *ngFor="let u of proffss">
+                          <th scope="row">{{u.idProfesseur}}</th>
+                          <th>{{u.nomProf}}</th>
+                          <th>{{u.prenomProf}}</th>
+                          <th>{{u.emailProf}}</th>
+                          <th>{{u.numTelProf}}</th>
+                          <th>{{u.module}}</th>
+                          <th>{{u.anneeAmb}}</th>
+                          <th>{{u.nbrheure}}</th>
+                          <th>{{u.classe}}</th>
+                          <th>{{u.departementsProf?.nomDepart}}</th>
+                          <th>
+                          <button  class="btn btn-primary pull-right" [routerLink]="['../updateProfesseur/',u.idProfesseur]" >modify </button>
+                           <app-delete-professeur [professeur]="u" (notif)="afterDeleteProfesseur($event)"  ></app-delete-professeur>
                         </th>
                       </tr>
+                      <ul class="pagination justify-content-center">
+                        <li class="page-item"><a (click)="previousClick()" class="page-link">Previous</a></li>
+                        <li *ngFor='let index of pageIndexes' class="page-item" [ngClass]="active(index)">
+                                <a (click)="getPaginationWithIndex(index)" class="page-link">
+                                  {{index + 1}}
+                                </a>
+                        </li>
+                        <li class="page-item"><a (click)="nextClick()" class="page-link">Next</a></li>
+                      </ul>
+
                     </tbody>
                   </table>
                 </div>
@@ -178,8 +197,7 @@
   </div>
 </div>
 
-
-<app-footer></app-footer> 
+<app-footer></app-footer>
 <!--   Core JS Files   -->
 <script src="../assets/js/core/jquery.min.js"></script>
 <script src="../assets/js/core/popper.min.js"></script>

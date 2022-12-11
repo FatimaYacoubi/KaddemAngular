@@ -25,6 +25,8 @@ import { ProjetModule } from './projet/projet-.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UniversiteModule } from './universite/universite.module';
 import { PartenaireModule } from './partenaire/partenaire.module';
+import { Departement } from './Models/Departement';
+import { ProfesseurModule } from './professeur/professeur.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +56,7 @@ ReactiveFormsModule,
     ProjetModule,
     BackModule,
     DetailEquipeModule,
+    ProfesseurModule
   ],
   providers: [AddcontratService],
   bootstrap: [AppComponent]

@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [{path:"",redirectTo:"/",pathMatch:"full"},
 
-  {path:"departement",loadChildren:()=>import("./departement/departement.module").then(m=>m.DepartementModule),
+{path:"departement",loadChildren:()=>import("./departement/departement.module").then(m=>m.DepartementModule),
 },
 {path:"user",loadChildren:()=>import("./user/user.module").then(m=>m.UserModule),
 },
@@ -12,7 +12,8 @@ const routes: Routes = [{path:"",redirectTo:"/",pathMatch:"full"},
 {path:"entreprise",loadChildren:()=>import("./entreprise/entreprise.module").then(m=>m.EntrepriseModule),
 },
 { path: 'equipe', loadChildren: () => import('./Equipe/equipe.module').then(m => m.EquipeModule) },
-
+{path:"professeur",loadChildren:()=>import("./professeur/professeur.module").then(m=>m.ProfesseurModule),
+},
 { path: 'equipeDetail', loadChildren: () => import('./detail-equipe/detail-equipe.module').then(m => m.DetailEquipeModule) },
 { path: 'projet', loadChildren: () => import('./projet/projet-.module').then(m => m.ProjetModule) },
 { path: 'projetdetail', loadChildren: () => import('./projectdetails/projectdetails.module').then(m => m.ProjectdetailsModule) }

@@ -38,6 +38,8 @@ export class AddDepartementComponent implements OnInit {
     this.departservice.addDepartement(myform).subscribe(
       (d)=>{
        console.log("added");
+       window.location.reload();
+
        
   this.router.navigate(['../mainDepartement'])
       });
