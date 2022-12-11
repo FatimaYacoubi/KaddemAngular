@@ -42,8 +42,8 @@ export class MainOffreComponent implements OnInit {
 
   afterDeleteOffre( e:Offre ){
     console.log(e);
-    let j=this.offres.indexOf(e);
-    this.offres.splice(j,1);
+    let j=this.offress.indexOf(e);
+    this.offress.splice(j,1);
     Swal.fire(
       'Offre   '+e.nomOffre+  
       '   Deleted!',

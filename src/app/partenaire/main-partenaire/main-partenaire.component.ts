@@ -60,8 +60,8 @@ export class MainPartenaireComponent implements OnInit {
 
   afterDeleteUniversite( e:Partenaire ){
     console.log(e);
-    let j=this.partenaires.indexOf(e);
-    this.partenaires.splice(j,1);
+    let j=this.partenairess.indexOf(e);
+    this.partenairess.splice(j,1);
     Swal.fire(
       'Universite   '+e.nomPartenaire +  
       '   Deleted!',
