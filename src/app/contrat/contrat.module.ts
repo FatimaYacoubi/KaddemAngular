@@ -9,11 +9,13 @@ import { NgxChartsModule }from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BackModule } from '../back/back.module';
+import { ContratinputoutputComponent } from './contratinputoutput/contratinputoutput.component';
 
 @NgModule({
   declarations: [
     AddcontratComponent,
-    DeletecontratComponent
+    DeletecontratComponent,
+    ContratinputoutputComponent
   ],
   imports: [
     CommonModule,

@@ -9,12 +9,13 @@ export class Contrat{
     descriptionContrat: String|undefined;
     etudiantC: Etudiant|undefined;
     montantContrat?: number|undefined;
-
+idContrat?: number|undefined;
     constructor( dateDebutContrat: Date ,
         datefinContrat: Date ,
        specialite: Specialite,
        archive: boolean, descriptionContrat: String,
-       etudiantC: Etudiant,montantContrat: number)
+       etudiantC: Etudiant,montantContrat: number
+       )
     {  this.dateDebutContrat=dateDebutContrat;
         this.datefinContrat=datefinContrat;
         this.specialite=specialite;

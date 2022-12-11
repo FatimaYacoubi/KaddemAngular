@@ -7,6 +7,7 @@ import { Specialite } from '../Specialite';
 import { Message } from '../message';
 const pageSize:number = 5;
 const page:number = 5;
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -23,6 +24,9 @@ export class DeletecontratComponent implements OnInit {
  page : any;
  single :any;
  p: number=1;
+
+ contratInput!:Contrat[];
+
  currentSelectedPage:number = 0;
   totalPages: number = 0;
   contrats: any;
@@ -145,7 +149,19 @@ public findContratBySpecialite()
 }
 Contrats()
 {let resp=this.service.getContrats();
-  resp.subscribe((data)=>this.contratsss=data);
+  resp.subscribe((data)=>this.contratInput);
 
 }
+afterDeleteContrat( o:Contrat ){
+  Swal.fire(
+    'Offre   '+o.idContrat+  
+    '   Deleted!',
+    'Your file has been deleted.',
+    'success'
+  ); 
+this.Contrats();
+  let j=this.contratInput.indexOf(o);
+  this.contratInput.splice(j,1);
+  
+  }
 }

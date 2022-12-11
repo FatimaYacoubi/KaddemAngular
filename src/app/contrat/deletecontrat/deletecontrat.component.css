@@ -22,22 +22,25 @@
 .click-me
 {
   display:block;
-  width:160px;
+  width:80px;
   height:50px;
-  background: #dde1e7;
-  box-shadow: -3px -3px 7px #fffdfdcc,3px 3px 5px rgba(94, 104, 121, 0.342);
+  background: #750fb4;
   text-align:center;
   font-size:22px;
   line-height:50px;
   cursor:pointer;
+  z-index: 3;
+  position: absolute;
 }
 #click
-{
+{width:20px;
+  height:30px;
+  background: #750fb4;
   display:none;
 }
 .click-me:hover
 {
-  color: #0a5878;
+  color: #83029d;
 }
 .content
 {
@@ -76,16 +79,16 @@
   letter-spacing: 2px;
 }
 form
-{
-  margin-top: 40px;
+{ 
+  margin-top: 50px;
 }
+
 label
 {
   display: block;
-  margin-top: 38px;
-  font-size: 16px;
-  font-weight: 500;
-  width: 20px;
+  margin-top: 10px;
+  font-size: 7px;
+  width: 6px;
 }
 input
 {

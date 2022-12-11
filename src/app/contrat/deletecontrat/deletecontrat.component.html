@@ -169,17 +169,17 @@
         
         <div align="center">
          
-        <td><button class="btn btn-danger btn-xl"(click)="exportProductsPdf()">PDF <i class="fa fa-file-pdf-o" ></i></button></td>
-        <td><button class="btn btn-danger btn-xl"(click)="exportContratExcel()">Excel <i class="fa fa-file-excel-o"></i></button></td>
+        <td style="z-index: 10;position: absolute;"></td>
+        <td style="z-index: 10;position: absolute;"></td>
     </div>
-    <div style="background-color: #1a2035;">
+    <div style="background-color: #1a2035;margin-top: -60px;">
         <div class="container-fluid">
             <div class="row">
               <div class="col-md-12">
                 <div class="card">
                   <div class="card-header card-header-primary">
-                    <h4 class="card-title ">Table de Contrats</h4>
-                    <p class="card-category"> Table de contrats des etudiants</p>
+                    <button class="btn btn-primary btn-xl pull-right"(click)="exportProductsPdf()">PDF <i class="fa fa-file-pdf-o" ></i></button>
+                    <button class="btn btn-primary btn-xl"(click)="exportContratExcel()">Excel <i class="fa fa-file-excel-o"></i></button>
                   </div>
                   <div class="card-body">
                     <div class="table-responsive">
@@ -200,21 +200,20 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let contrat of contrats">
-                <td>{{contrat.idContrat}}</td>
-                <td>{{contrat.dateDebutContrat}}</td>
-                <td>{{contrat.datefinContrat}}</td>
-                <td>{{contrat.specialite}}</td>
-                <td>{{contrat.descriptionContrat}}</td>
-                <td>{{contrat.montantContrat}} dt</td>
+            <tr *ngFor="let o of contrats">
+                <td>{{o.idContrat}}</td>
+                <td>{{o.dateDebutContrat}}</td>
+                <td>{{o.datefinContrat}}</td>
+                <td>{{o.specialite}}</td>
+                <td>{{o.descriptionContrat}}</td>
+                <td>{{o.montantContrat}} dt</td>
 
                 <ng-container>
-                    <td>{{contrat.etudiantC?.prenomE}}  {{contrat.etudiantC?.nomE}}</td>
+                    <td>{{o.etudiantC?.prenomE}}  {{o.etudiantC?.nomE}}</td>
                 </ng-container>
+<td><app-contratinputoutput [contratInput]="o" (notif)="afterDeleteContrat($event)"></app-contratinputoutput></td>
     
-                <td class="text-center"><button class="btn btn-danger btn-xs"(click)="deleteContrat(contrat.idContrat)"><i class="fa fa-trash"></i></button></td>
-    
-                    <label for="click" class="click-me"(click)="edit(contrat)"> Edit</label>
+                    <label for="click" class="click-me"(click)="edit(o)"> Edit</label>
     
               </tr>
         </tbody>
