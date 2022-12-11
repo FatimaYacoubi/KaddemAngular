@@ -9,11 +9,11 @@ import { Equipe } from '../Models/Equipe';
 })
 export class DetailEquipeService {
 
-  DEqURL="http://localhost:8088/SpringMVC/DetailEquipeC/";
+  DEqURL="http://localhost:5001/api/authentication/";
   constructor(private http:HttpClient) { }
 
   GetAllDetailEquipe(): Observable<DetailEquipe[]>{
-    return this.http.get<DetailEquipe[]>(this.DEqURL+'Affichage')
+    return this.http.get<DetailEquipe[]>(this.DEqURL+'AffichageDetailEquipe')
   }
   GetDetailEquipeById(idDE:any): Observable<DetailEquipe[]>{
     return this.http.get<DetailEquipe[]>(this.DEqURL+'EquipeById/'+idDE)

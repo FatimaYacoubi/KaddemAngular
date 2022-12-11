@@ -3,12 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { DetailEquipeRoutingModule } from './detail-equipe-routing.module';
 import { DetailEquipeComponent } from './detail-equipe.component';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UpdateDetailEquipeComponent } from './update-detail-equipe/update-detail-equipe.component';
 
 
 @NgModule({
   declarations: [
-    DetailEquipeComponent
+    DetailEquipeComponent,
+    UpdateDetailEquipeComponent,
+    
   ],
   imports: [
     CommonModule,

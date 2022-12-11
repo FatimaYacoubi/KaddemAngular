@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Equipe } from 'src/app/Models/Equipe';
 import { Niveau } from 'src/app/Models/Niveau';
 
-
 import { EquipeService } from 'src/app/Services/equipe.service';
-
+import { Equipe } from 'src/app/Models/Equipe';
 @Component({
   selector: 'app-update-equipe',
   templateUrl: './update-equipe.component.html',
@@ -15,7 +13,7 @@ export class UpdateEquipeComponent implements OnInit {
   data:any;
   equipeToUpdate: Equipe= new Equipe("",Niveau.JUNIOR);
   p: number=1;
-  equipe: Equipe | undefined;
+  equipe:Equipe | undefined;
 
   constructor(private service:EquipeService) { }
 

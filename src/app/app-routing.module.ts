@@ -11,15 +11,16 @@ const routes: Routes = [{path:"",redirectTo:"/",pathMatch:"full"},
 },
 {path:"entreprise",loadChildren:()=>import("./entreprise/entreprise.module").then(m=>m.EntrepriseModule),
 },
-{ path: 'equipe', loadChildren: () => import('./Equipe/equipe.module').then(m => m.EquipeModule) },
 {path:"professeur",loadChildren:()=>import("./professeur/professeur.module").then(m=>m.ProfesseurModule),
 },
-{ path: 'equipeDetail', loadChildren: () => import('./detail-equipe/detail-equipe.module').then(m => m.DetailEquipeModule) },
+{ path: 'equipe', loadChildren: () => import('./Equipe/equipe.module').then(m => m.EquipeModule) },
+{ path: 'DetailEquipe', loadChildren: () => import('./detail-equipe/detail-equipe.module').then(m => m.DetailEquipeModule) },
+
 { path: 'projet', loadChildren: () => import('./projet/projet-.module').then(m => m.ProjetModule) },
 { path: 'projetdetail', loadChildren: () => import('./projectdetails/projectdetails.module').then(m => m.ProjectdetailsModule) }
 ,{path:"offre",loadChildren:()=>import("./offre/offre.module").then(m=>m.OffreModule),},
 {path:"universite",loadChildren:()=>import("./universite/universite.module").then(m=>m.UniversiteModule),}
-,{path:"partenaire",loadChildren:()=>import("./partenaire/partenaire.module").then(m=>m.PartenaireModule),}
+,{path:"partenaire",loadChildren:()=>import("./partenaire/partenaire.module").then(m=>m.PartenaireModule),},
 
 
 ];

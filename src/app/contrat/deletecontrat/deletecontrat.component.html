@@ -31,61 +31,61 @@
               <div class="sidebar-wrapper">
                 <ul class="nav">
                   <li class="nav-item  ">
-                    <a class="nav-link" href="./dashboard.html">
+                    <a class="nav-link" [routerLink]="['/contrat/add']">
                       <i class="material-icons">dashboard</i>
                       <p>Dashboard</p>
                     </a>
                   </li>
                   <li class="nav-item ">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" [routerLink]="['/contrat/add']">
                       <i class="material-icons">person</i>
                       <p>Profile Etudiant</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" [routerLink]="['/departement/mainDepartement']">
                       <i class="material-icons">content_paste</i>
                       <p>Departement</p>
                     </a>
                   </li>
                   <li class="nav-item active">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" [routerLink]="['/contrat/add']">
                       <i class="material-icons">content_paste</i>
                       <p>Contrats</p>
                     </a>
                   </li>
                   <li class="nav-item ">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" [routerLink]="['/entreprise/list']">
                       <i class="material-icons">content_paste</i>
                       <p>Entreprises</p>
                     </a>
                   </li>
                   <li class="nav-item ">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" [routerLink]="['/equipe/update']">
                       <i class="material-icons">library_books</i>
                       <p>Equipes</p>
                     </a>
                   </li>
                   <li class="nav-item ">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" [routerLink]="['/projet/list']">
                       <i class="material-icons">bubble_chart</i>
                       <p>Projet</p>
                     </a>
                   </li>
                   <li class="nav-item ">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" [routerLink]="['/universite/mainuniversite']">
                       <i class="material-icons">location_ons</i>
                       <p>Universite</p>
                     </a>
                   </li>
                   <li class="nav-item ">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" [routerLink]="['/professeur/mainProfesseur']">
                       <i class="material-icons">notifications</i>
                       <p>Professeurs</p>
                     </a>
                   </li>
                   <li class="nav-item ">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" [routerLink]="['/contrat/add']">
                       <i class="material-icons">notifications</i>
                       <p>Tasks</p>
                     </a>
@@ -160,26 +160,28 @@
               </div>
             </div>
           </nav>
-       
-        <br>
-        <br>
+
         <br>
         <br>
         <br>
         
-        <div align="center">
-         
-        <td style="z-index: 10;position: absolute;"></td>
-        <td style="z-index: 10;position: absolute;"></td>
-    </div>
+        <br>
+   
     <div style="background-color: #1a2035;margin-top: -60px;">
         <div class="container-fluid">
             <div class="row">
               <div class="col-md-12">
                 <div class="card">
+            
+                  <div align="center">
+                    <a style="z-index: 10;position: absolute;" class="collapse-item" [routerLink]="['/contrat/add']" class="btn btn-primary" style="align-items:center ;" >AJOUTER</a>
+                  </div>
+                  <br>
+                  
                   <div class="card-header card-header-primary">
                     <button class="btn btn-primary btn-xl pull-right"(click)="exportProductsPdf()">PDF <i class="fa fa-file-pdf-o" ></i></button>
                     <button class="btn btn-primary btn-xl"(click)="exportContratExcel()">Excel <i class="fa fa-file-excel-o"></i></button>
+                
                   </div>
                   <div class="card-body">
                     <div class="table-responsive">
