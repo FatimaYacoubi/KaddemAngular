@@ -52,10 +52,22 @@
                 <p>Projet</p>
               </a>
             </li>
-            <li class="nav-item ">
-              <a class="nav-link" href="">
-                <i class="material-icons">location_ons</i>
+            <li class="nav-item  " [ngClass]="{'active' : goToUniversite()}">
+              <a class="nav-link" routerLink="/universite/mainuniversite">
+                <i class="material-icons">school</i>
                 <p>Universite</p>
+              </a>
+            </li>
+            <li class="nav-item  " [ngClass]="{'active' : goToPartenaire()}">
+              <a class="nav-link" routerLink="/partenaire/mainpartenaire">
+                <i class="material-icons">work</i>
+                <p>Partenaire</p>
+              </a>
+            </li>
+            <li class="nav-item  " [ngClass]="{'active' : goToOffre()}">
+              <a class="nav-link" routerLink="/offre/mainoffre">
+                <i class="material-icons">notifications</i>
+                <p>Offre</p>
               </a>
             </li>
             <li class="nav-item ">

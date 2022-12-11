@@ -20,7 +20,7 @@ export class OffreService {
   deleteOffre(idU: any){
     return this.http.delete(this.UnivURL+'deleteOffre/'+idU);
   }
-  AddOffre(offre: Offre, id:any){
+  AddOffre(offre: Offre){
     return this.http.post<Offre>(this.UnivURL+'addOffre',offre);
   }
   UpdateOffre(offre:Offre ){

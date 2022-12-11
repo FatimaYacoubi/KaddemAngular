@@ -58,7 +58,7 @@
                           </div>
                           <label class="bmd-label-floating">Nom Offre</label>
                           <input type="text" class="form-control" [(ngModel)]="offre.nomOffre" required minlength="3" pattern="[a-zA-Z0-9]*"  #nomOffre="ngModel" name="nomOffre"  id="nomOffre" >
-                          >
+                          
                         </div>
                       </div>
                    
@@ -82,16 +82,6 @@
                         </div>
                       </div>
 
-                      <div class="col-md-6">
-                        <div class="form-group">
-                           <label class="bmd-label-floating">Universite</label>
-                           <input required class="form-control"  type="text" [(ngModel)]="offre.listpartenaire" required #listpartenaire="ngModel"  list=listpartenaire  name="listpartenaire"  >
-                           <datalist   id="listpartenaire"  >
-                            <option value="">--Please choose an option--</option>
-                            <option *ngFor="let b of partenaire" [value]="b.nomPartenaire" > {{b.nomPartenaire}} </option>
-                        </datalist>                      
-                        </div>
-                      </div>
                     </div>
                     <button type="submit" class="btn btn-primary pull-right" [disabled]="f.invalid" (click)="updateoffre()" >Update</button>
                     <div class="clearfix"></div>

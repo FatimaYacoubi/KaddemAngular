@@ -58,7 +58,7 @@
                         <th>Nom Offre</th>
                         <th>Description</th>
                         <th>Type</th>
-                        <th>Partenaire</th>
+                      
                         <th>Action</th>
                       </thead>
                       <tbody>
@@ -67,9 +67,9 @@
                             <th>{{o.nomOffre}}</th>
                            <th>{{o.descriptionOffre}}</th>
                            <th>{{o.typeOffre}}</th>
-                           <th>{{o.listpartenaire?.nomPartenaire}}</th>
+                          
                            <th>
-                            <button  class="btn btn-primary pull-right" [routerLink]="['/updateoffre/',o.idOffre]" >modify </button>
+                            <button  class="btn btn-primary pull-right" [routerLink]="['../updateoffre/',o.idOffre]" >modify </button>
                             <app-delete-offre [offre]="o" (notif)="afterDeleteOffre($event)"></app-delete-offre> 
                           </th>
                         </tr>

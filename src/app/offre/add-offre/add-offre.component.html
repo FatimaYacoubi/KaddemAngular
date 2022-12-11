@@ -41,70 +41,50 @@
             <div class="col-md-8">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title">Add Partenaire</h4>
-                  <p class="card-category">Partenaire</p>
+                  <h4 class="card-title">Add Offre</h4>
+                  <p class="card-category">Offre</p>
                 </div>
                 <div class="card-body">
-                  <form _lpchecked="1" [formGroup]="formgroup" >
+                  <form _lpchecked="1" #f="ngForm">
                     <div  class="form-group" >
                     
                      <div class="row" >
                       <div class="col-md-3">
                         <div class="form-group">
-                          
+                          <div *ngIf="nomOffre.invalid && nomOffre.touched" class="alert alert-danger" role="alert"  >
+                            <div *ngIf="nomOffre.errors?.['minlength']"> minlength  </div> 
+                          </div>
                           <label class="bmd-label-floating">Nom Offre</label>
-                          <input   type="text" class="form-control" formControlName="nomOffre"   name="nomOffre"  id="nomOffre" required minlength="3" pattern="^[A-Z].*"  >
-                            <mat-error *ngIf="!nomOffre?.valid && nomOffre?.touched">
-                             <div *ngIf="nomOffre?.errors?.['required']"> Field is required</div>
-                             <div *ngIf="nomOffre?.errors?.['pattern']"> should start with A-Z</div>
-                             <div *ngIf="nomOffre?.errors?.['minlength']"> You need to specify at least 3 characters</div>
-                            </mat-error>
-                    
-                            
+                          <input type="text" class="form-control" [(ngModel)]="offre.nomOffre"  minlength="3" pattern="[a-zA-Z0-9]*"  #nomOffre="ngModel" name="nomOffre"  id="nomOffre" >
+                          
                         </div>
                       </div>
                    
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Description</label>
-                          <input required   pattern="^[A-Z].*" type="descriptionOffre" class="form-control" formControlName="descriptionOffre" name="descriptionOffre"  id="descriptionOffre" >
-                          <mat-error *ngIf="!descriptionOffre?.valid && descriptionOffre?.touched">
-                           
-                            <div *ngIf="descriptionOffre?.errors?.['required']"> Field is required</div>
-                            <div *ngIf="descriptionOffre?.errors?.['pattern']">should start with A-Z </div>
-                           </mat-error>
-                   
-                       
+                          <div *ngIf="descriptionOffre.invalid && descriptionOffre.touched" class="alert alert-danger" role="alert"  >
+                            <div *ngIf="descriptionOffre.errors?.['minlength']"> minlength  </div> </div>
+                          <label class="bmd-label-floating"> Description </label>
+                          <input type="text" class="form-control" [(ngModel)]="offre.descriptionOffre"  #descriptionOffre="ngModel" name="descriptionOffre"  id="descriptionOffre" >
                         </div>
                       </div>
-             
+
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Type Offre</label>
-                          <input  required minlength ="text" class="form-control" formControlName="typeOffre"   name="typeOffre"  id="typeOffre" >
-                          <mat-error *ngIf="!typeOffre?.valid && typeOffre?.touched">
-                            <div *ngIf="typeOffre?.errors?.['required']"> Field is required</div>
-                            <div *ngIf="typeOffre?.errors?.['minlength']"> You need to specify at least 4 characters</div>
-                           </mat-error>
+                          <div *ngIf="typeOffre.invalid && typeOffre.touched" class="alert alert-danger" role="alert"  >
+                         
+                            <div *ngIf="typeOffre.errors?.['minlength']"> minlength  </div> </div>
+                          <label class="bmd-label-floating"> Type Offre </label>
+                          <input type="text" class="form-control" [(ngModel)]="offre.typeOffre"  #typeOffre="ngModel" name="typeOffre"  id="typeOffre" >
                         </div>
                       </div>
                     </div>
-                    <div class="row" >
-                      <div class="col-md-6">
-                        <div class="form-group">
-                           <label class="bmd-label-floating">Pratenaire</label>
-                           <select   formControlName="listpartenaire" id="listpartenaire"   list=listpartenaire  name="listpartenaire" >
-                            <option *ngFor="let b of partenaire" [value]="b.idPartenaire" > {{b.nomPartenaire}} </option>
-                           </select>                      
-                        </div>
-                      </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary pull-right" [disabled]="formgroup.invalid" (click)="Affect()" >Ajout</button>
+                    <button type="submit" class="btn btn-primary pull-right" [disabled]="f.invalid" (click)="AddOffre()" >Ajouter</button>
                     <div class="clearfix"></div>
                   </div>
                
                   </form>
-                </div> -->
+                </div>
               </div>
             </div>
             <div class="col-md-4">

@@ -10,7 +10,7 @@ const routes: Routes = [
   {path:'mainoffre',component:MainOffreComponent},
   {path:'addoffre',component:AddOffreComponent},
   {path:'deleteoffre',component:DeleteOffreComponent},
-  {path:'updateoffre',component:UpdateOffreComponent}
+  {path:'updateoffre/:id',component:UpdateOffreComponent}
 
 ];
 

@@ -17,4 +17,17 @@ export class NavComponent implements OnInit {
     return this.route.url === '/contrat/list'
   }
 
+  goToUniversite(){
+    return this.route.url === '/universite/mainuniversite'
+  }
+
+  goToPartenaire(){
+    return this.route.url === '/partenaire/mainpartenaire'
+  }
+
+  goToOffre(){
+    return this.route.url === '/offre/mainoffre'
+  }
+
+
 }
