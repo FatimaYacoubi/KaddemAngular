@@ -1,6 +1,7 @@
-import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHandler, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, shareReplay } from 'rxjs';
+import { paginationprojet } from 'src/paginationprojet';
 import { projet } from 'src/projet';
 
 @Injectable({
@@ -50,4 +51,18 @@ export class ProjetService {
       .get('http://localhost:8088/SpringMVC/ProjetC/getallProjets' + idProjet)
       .pipe(shareReplay(1));
   }
+
+
+  getPagableproje(pageNumber: number, 
+    pageSize: number): Observable<paginationprojet> {
+// Initialize Params Object
+let params = new HttpParams();
+
+// Begin assigning parameters
+params = params.append('page', pageNumber.toString());
+params = params.append('size', pageSize.toString());
+
+return this.http.get<paginationprojet>("http://localhost:8088/SpringMVC/ProjetC/findAllEPaginate", { params: params })
+
+}
 }

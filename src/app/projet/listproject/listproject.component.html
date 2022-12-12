@@ -257,7 +257,7 @@
                           </th>
                         </thead>
                         <tbody>
-                          <tr *ngFor="let projet of list | async">
+                          <tr *ngFor="let projet of projetspage">
                             <td style="text-align: center">
                               {{ projet.idProjet }}
                             </td>
@@ -280,18 +280,20 @@
                                 <i class="fa fa-edit"></i>
                               </button>
                             </td>
-                            <td class="text-center">
-                              <button
-                                class="btn btn-danger btn-xs"
-                                (click)="deleteprojet(projet.idProjet)"
-                              >
-                                <i class="fa fa-trash"></i>
-                              </button>
-                            </td>
+                            <td ><app-deleteprojet [projetinput]="projet"  class="btn btn-danger btn-xs" (notif)="afterDeleteContrat($event)"></app-deleteprojet></td>
                           </tr>
                         </tbody>
                       </table>
-
+                      
+                      <ul class="pagination justify-content-center">
+                        <li class="page-item"><a (click)="previousClick()" class="page-link">Previous</a></li>
+                        <li *ngFor='let index of pageIndexes' class="page-item" [ngClass]="active(index)">
+                                <a (click)="getPaginationWithIndex(index)" class="page-link">
+                                  {{index + 1}}
+                                </a>
+                        </li>
+                        <li class="page-item"><a (click)="nextClick()" class="page-link">Next</a></li>
+                      </ul>
                       <div class="card-body">
                         <form _lpchecked="1" #ff="ngForm">
                           <div class="row">

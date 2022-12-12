@@ -21,10 +21,11 @@
     "@fullcalendar/angular": "^5.11.3",
     "@fullcalendar/daygrid": "^5.11.3",
     "@syncfusion/ej2-angular-schedule": "^20.3.58",
+    "@syncfusion/ej2-material-theme": "~20.3.58",
     "rxjs": "~7.5.0",
+    "sweetalert2": "^11.6.15",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4",
-    "@syncfusion/ej2-material-theme": "~20.3.58"
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.2.3",
